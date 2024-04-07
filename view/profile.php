@@ -25,13 +25,14 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="image">Profile Image:</label>
+                            <label for="foto_profil">Profile Image:</label>
                             <br>
-                            <?=
-                            $foto_profil ? "<img src='../db/image/$foto_profil' class='img-preview img-fluid rounded' style='width: 10%' id='image'>"
-                                : "Tidak ada gambar";
-                            ?>
-                            <input type="file" class="form-control" id="foto_profil" name="foto_profil">
+                            <?php if ($foto_profil): ?>
+    <img id="preview" src="../db/image/<?= $foto_profil ?>" alt="Foto" width="100" height="100">
+<?php else: ?>
+    <img id="preview" style="display: none;" alt="Foto" width="100" height="100">
+<?php endif; ?>
+<input type="file" class="form-control" id="foto_profil" name="foto_profil">
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
@@ -67,6 +68,17 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('foto_profil').addEventListener('change', function(e) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById('preview');
+                preview.src = e.target.result;
+                preview.style.display = 'block'; // Menampilkan elemen gambar
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    </script>
 <?php
 $content = ob_get_clean();
 require_once __DIR__ . '/template.php';

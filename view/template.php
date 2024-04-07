@@ -107,6 +107,12 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                         </a>
                     </li>
                 <?php endif; ?>
+                    <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'pengasuh.php' || basename($_SERVER['PHP_SELF']) == 'tambah_pengasuh.php' || basename($_SERVER['PHP_SELF']) == 'edit_pengasuh.php' ? 'active' : ''; ?>">
+                        <a href="pengasuh.php">
+                            <i class="la la-dashboard"></i>
+                            <p>Pengasuh</p>
+                        </a>
+                    </li>
                 <?php endif; ?>
 
                 <?php if ($role == 'user'): ?>

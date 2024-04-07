@@ -13,7 +13,7 @@ final class Pengasuh extends AbstractMigration
             ->addColumn('email', 'string', ['limit' => 64, 'null' => false])
             ->addColumn('nomor_telepon', 'string', ['limit' => 64, 'null' => false])
             ->addColumn('jenis_kelamin', 'enum', ['values' => ['Laki-Laki', 'Perempuan'], 'null' => false])
-            ->addColumn('foto_profil', 'string', ['limit' => 255])
+            ->addColumn('foto', 'string', ['limit' => 255, 'null' => false])
             ->addColumn('tanggal_lahir', 'date', ['null' => false])
             ->addColumn('tanggal_bergabung', 'date', ['null' => false])
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
