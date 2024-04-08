@@ -63,6 +63,11 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                                             Profil</a></div>
                                 </div>
                             </li>
+                            <?php if ($role == 'user'): ?>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="beri_penilaian.php"><i class="ti-settings"></i>Beri
+                                    Penilaian</a>
+                            <?php endif; ?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="ubah_password.php"><i class="ti-settings"></i>Ubah
                                 Password</a>
@@ -70,7 +75,6 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             <a class="dropdown-item" href="../db/queries/Logout.php"><i
                                         class="fa fa-power-off"></i> Logout</a>
                         </ul>
-                        <!-- /.dropdown-user -->
                     </li>
                 </ul>
             </div>
@@ -93,20 +97,20 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
             </div>
             <ul class="nav">
                 <?php if ($role == 'admin' || $role == 'owner'): ?>
-                <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
-                    <a href="index.php">
-                        <i class="la la-dashboard"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <?php if ($role == 'owner'): ?>
-                    <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'admin.php' || basename($_SERVER['PHP_SELF']) == 'tambah_admin.php' ? 'active' : ''; ?>">
-                        <a href="admin.php">
+                    <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
+                        <a href="index.php">
                             <i class="la la-dashboard"></i>
-                            <p>Admin</p>
+                            <p>Dashboard</p>
                         </a>
                     </li>
-                <?php endif; ?>
+                    <?php if ($role == 'owner'): ?>
+                        <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'admin.php' || basename($_SERVER['PHP_SELF']) == 'tambah_admin.php' ? 'active' : ''; ?>">
+                            <a href="admin.php">
+                                <i class="la la-dashboard"></i>
+                                <p>Admin</p>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'pengasuh.php' || basename($_SERVER['PHP_SELF']) == 'tambah_pengasuh.php' || basename($_SERVER['PHP_SELF']) == 'edit_pengasuh.php' ? 'active' : ''; ?>">
                         <a href="pengasuh.php">
                             <i class="la la-dashboard"></i>

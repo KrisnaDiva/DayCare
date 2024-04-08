@@ -10,6 +10,7 @@ function guest(): void
         exit();
     }
 }
+
 function auth(): void
 {
     if (session_status() == PHP_SESSION_NONE) {

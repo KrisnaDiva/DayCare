@@ -18,7 +18,8 @@ ob_start();
 
                         <div class="form-group">
                             <label for="jenis_kelamin">Jenis Kelamin</label>
-                            <select class="form-control" aria-label="Default select example" name="jenis_kelamin" required>
+                            <select class="form-control" aria-label="Default select example" name="jenis_kelamin"
+                                    required>
                                 <option selected value="">Pilih jenis kelamin</option>
                                 <option value="Laki-Laki">Laki-Laki</option>
                                 <option value="Perempuan">Perempuan</option>
@@ -30,7 +31,8 @@ ob_start();
                         </div>
                         <div class="form-group">
                             <label for="nomor_telepon">Nomor Telpon</label>
-                            <input type="number" class="form-control" name="nomor_telepon" placeholder="Masukkan No telepon" required>
+                            <input type="number" class="form-control" name="nomor_telepon"
+                                   placeholder="Masukkan No telepon" required>
                         </div>
                     </div>
                     <div class="card-action">

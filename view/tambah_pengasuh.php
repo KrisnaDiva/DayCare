@@ -13,8 +13,8 @@ ob_start();
                     <div class="card-body">
                         <div class="form-group">
                             <label for="foto">Foto</label> <br>
-                                <img id="preview" alt="Foto " width="100" height="100" style="display: none">
-                            <input id="foto" type="file" class="form-control" name="foto" >
+                            <img id="preview" alt="Foto " width="100" height="100" style="display: none">
+                            <input id="foto" type="file" class="form-control" name="foto">
                         </div>
 
                         <div class="form-group">
@@ -24,7 +24,8 @@ ob_start();
 
                         <div class="form-group">
                             <label for="jenis_kelamin">Jenis Kelamin</label>
-                            <select class="form-control" aria-label="Default select example" name="jenis_kelamin" required>
+                            <select class="form-control" aria-label="Default select example" name="jenis_kelamin"
+                                    required>
                                 <option selected value="">Pilih jenis kelamin</option>
                                 <option value="Laki-Laki">Laki-Laki</option>
                                 <option value="Perempuan">Perempuan</option>
@@ -36,7 +37,8 @@ ob_start();
                         </div>
                         <div class="form-group">
                             <label for="nomor_telepon">Nomor Telpon</label>
-                            <input type="number" class="form-control" name="nomor_telepon" placeholder="Masukkan No telepon" required>
+                            <input type="number" class="form-control" name="nomor_telepon"
+                                   placeholder="Masukkan No telepon" required>
                         </div>
                         <div class="form-group">
                             <label for="tanggal_lahir">Tanggal Lahir</label>
@@ -57,12 +59,11 @@ ob_start();
     </div>
 
     <script>
-        document.getElementById('foto').addEventListener('change', function(e) {
+        document.getElementById('foto').addEventListener('change', function (e) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 document.getElementById('preview').src = e.target.result;
             }
-            // Tampilkan elemen gambar sebelum memanggil reader.readAsDataURL
             document.getElementById('preview').style.display = "block";
             reader.readAsDataURL(this.files[0]);
         });

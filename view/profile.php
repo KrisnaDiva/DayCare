@@ -28,11 +28,12 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             <label for="foto_profil">Profile Image:</label>
                             <br>
                             <?php if ($foto_profil): ?>
-    <img id="preview" src="../db/image/<?= $foto_profil ?>" alt="Foto" width="100" height="100">
-<?php else: ?>
-    <img id="preview" style="display: none;" alt="Foto" width="100" height="100">
-<?php endif; ?>
-<input type="file" class="form-control" id="foto_profil" name="foto_profil">
+                                <img id="preview" src="../db/image/<?= $foto_profil ?>" alt="Foto" width="100"
+                                     height="100">
+                            <?php else: ?>
+                                <img id="preview" style="display: none;" alt="Foto" width="100" height="100">
+                            <?php endif; ?>
+                            <input type="file" class="form-control" id="foto_profil" name="foto_profil">
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
@@ -69,12 +70,12 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
         </div>
     </div>
     <script>
-        document.getElementById('foto_profil').addEventListener('change', function(e) {
+        document.getElementById('foto_profil').addEventListener('change', function (e) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 const preview = document.getElementById('preview');
                 preview.src = e.target.result;
-                preview.style.display = 'block'; // Menampilkan elemen gambar
+                preview.style.display = 'block';
             }
             reader.readAsDataURL(this.files[0]);
         });

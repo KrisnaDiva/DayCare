@@ -62,4 +62,6 @@ try {
         alert('Data gagal diubah $errorMessage');
         window.location.href = '../../view/edit_pengasuh.php?id=$id';
               </script>";
+} finally {
+    $koneksi = null;
 }

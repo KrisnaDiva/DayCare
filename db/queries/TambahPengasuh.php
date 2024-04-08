@@ -52,4 +52,6 @@ try {
         alert('Data gagal ditambahkan $errorMessage');
         window.location.href = '../../view/tambah_pengasuh.php';
               </script>";
+} finally {
+    $koneksi = null;
 }

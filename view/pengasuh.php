@@ -37,7 +37,8 @@ $pengasuh = $statement->fetchAll();
                                 <td><?= $key + 1 ?></td>
                                 <td><?= htmlspecialchars($value['nama']); ?></td>
                                 <td>
-                                    <img src="../db/image/<?= htmlspecialchars($value['foto']); ?>" alt="Foto Profil" width="50" height="50">
+                                    <img src="../db/image/<?= htmlspecialchars($value['foto']); ?>" alt="Foto Profil"
+                                         width="50" height="50">
                                 </td>
                                 <td><?= htmlspecialchars($value['jenis_kelamin']); ?></td>
                                 <td><?= htmlspecialchars($value['email']); ?></td>

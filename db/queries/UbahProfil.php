@@ -103,5 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         alert('Data gagal diperbarui $errorMessage');
         window.location.href = '../../view/profile.php';
               </script>";
+    } finally {
+        $koneksi = null;
     }
 }

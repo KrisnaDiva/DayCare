@@ -14,7 +14,7 @@ $data = [
 $stmt = $koneksi->prepare("SELECT * FROM users WHERE email = ?");
 $stmt->execute([$data['email']]);
 if ($stmt->rowCount() > 0) {
-echo "<script type='text/javascript'>
+    echo "<script type='text/javascript'>
         alert('Email sudah terdaftar.');
         window.location.href = '../../view/register.php';
       </script>";
@@ -35,4 +35,4 @@ if ($stmt->execute(array_values($data))) {
         window.location.href = '../../view/register.php';
       </script>";
 }
-$koneksi=null;
+$koneksi = null;

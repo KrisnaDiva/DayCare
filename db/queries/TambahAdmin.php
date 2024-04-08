@@ -35,4 +35,4 @@ if ($stmt->execute(array_values($data))) {
         window.location.href = '../../view/tambah_admin.php';
       </script>";
 }
-$koneksi=null;
+$koneksi = null;

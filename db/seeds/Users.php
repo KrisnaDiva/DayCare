@@ -43,6 +43,15 @@ class Users extends AbstractSeed
                 'nomor_telepon' => '089658444103',
                 'foto_profil' => null,
                 'role' => 'user',
+            ),
+            array(
+                'nama'    => 'Krisna Diva',
+                'email'    => 'krisnadiva@example.com',
+                'password' => password_hash('password', PASSWORD_DEFAULT),
+                'jenis_kelamin' => 'Laki-Laki',
+                'nomor_telepon' => '089658444104',
+                'foto_profil' => null,
+                'role' => 'user',
             )
         );
 
