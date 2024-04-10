@@ -1,8 +1,7 @@
 <?php
-    $title = "Edit Anak";
+$title = "Edit Anak";
 ob_start();
 require_once __DIR__ . '/../db/koneksi.php';
-session_start();
 $koneksi = getKoneksi();
 $id = $_GET['id'];
 $sql = "SELECT * FROM anak WHERE id = ?";

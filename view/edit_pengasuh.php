@@ -2,7 +2,6 @@
 $title = "Edit Pengasuh";
 ob_start();
 require_once __DIR__ . '/../db/koneksi.php';
-session_start();
 $koneksi = getKoneksi();
 $id = $_GET['id'];
 $sql = "SELECT * FROM pengasuh WHERE id = ?";

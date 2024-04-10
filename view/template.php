@@ -99,30 +99,36 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
             </div>
             <ul class="nav">
                 <?php if ($role == 'admin' || $role == 'owner'): ?>
-                    <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
+                    <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'index' ? 'active' : ''; ?>">
                         <a href="index.php">
                             <i class="la la-dashboard"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <?php if ($role == 'owner'): ?>
-                        <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'admin.php' || basename($_SERVER['PHP_SELF']) == 'tambah_admin.php' ? 'active' : ''; ?>">
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'),  ['admin', 'tambah_admin']) ? 'active' : ''; ?>">
                             <a href="admin.php">
                                 <i class="la la-dashboard"></i>
                                 <p>Admin</p>
                             </a>
                         </li>
                     <?php endif; ?>
-                    <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'pengasuh.php' || basename($_SERVER['PHP_SELF']) == 'tambah_pengasuh.php' || basename($_SERVER['PHP_SELF']) == 'edit_pengasuh.php' ? 'active' : ''; ?>">
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'),  ['pengasuh', 'tambah_pengasuh', 'edit_pengasuh']) ? 'active' : ''; ?>">
                         <a href="pengasuh.php">
                             <i class="la la-dashboard"></i>
                             <p>Pengasuh</p>
                         </a>
                     </li>
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['paket', 'jenis_paket', 'tambah_paket', 'tambah_jenis_paket', 'edit_jenis_paket', 'edit_paket']) ? 'active' : ''; ?>">
+                        <a href="paket.php">
+                            <i class="la la-dashboard"></i>
+                            <p>Paket</p>
+                        </a>
+                    </li>
                 <?php endif; ?>
 
                 <?php if ($role == 'user'): ?>
-                    <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'testimoni.php' ? 'active' : ''; ?>">
+                    <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'testimoni.php' ? 'active' : ''; ?>">
                         <a href="testimoni.php">
                             <i class="la la-dashboard"></i>
                             <p>Testimoni</p>

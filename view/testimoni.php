@@ -2,7 +2,6 @@
 $title = "Testimoni";
 ob_start();
 require_once __DIR__ . '/../db/koneksi.php';
-session_start();
 $koneksi = getKoneksi();
 
 $sql = "SELECT * FROM testimoni";

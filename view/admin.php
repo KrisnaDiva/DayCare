@@ -2,7 +2,6 @@
 $title = "Admin";
 ob_start();
 require_once __DIR__ . '/../db/koneksi.php';
-session_start();
 $koneksi = getKoneksi();
 
 $sql = "SELECT id, nama, nomor_telepon, email, foto_profil, jenis_kelamin FROM users WHERE role = 'admin'";
