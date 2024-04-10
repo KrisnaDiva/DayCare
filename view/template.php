@@ -65,6 +65,8 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             </li>
                             <?php if ($role == 'user'): ?>
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="anak.php"><i class="ti-settings"></i>Data Anak</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="beri_penilaian.php"><i class="ti-settings"></i>Beri
                                     Penilaian</a>
                             <?php endif; ?>
@@ -120,7 +122,7 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                 <?php endif; ?>
 
                 <?php if ($role == 'user'): ?>
-                    <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'testimoni.php'  ? 'active' : ''; ?>">
+                    <li class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'testimoni.php' ? 'active' : ''; ?>">
                         <a href="testimoni.php">
                             <i class="la la-dashboard"></i>
                             <p>Testimoni</p>

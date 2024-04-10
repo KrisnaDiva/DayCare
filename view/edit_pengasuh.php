@@ -1,5 +1,5 @@
 <?php
-$title = "Update Pengasuh";
+$title = "Edit Pengasuh";
 ob_start();
 require_once __DIR__ . '/../db/koneksi.php';
 session_start();
