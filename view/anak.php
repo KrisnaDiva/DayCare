@@ -5,7 +5,7 @@ require_once __DIR__ . '/../db/koneksi.php';
 session_start();
 $koneksi = getKoneksi();
 
-$sql = "SELECT * FROM anak WHERE user_id = ? AND is_deleted = 0";
+$sql = "SELECT * FROM anak WHERE user_id = ?";
 $statement = $koneksi->prepare($sql);
 $statement->execute([$_SESSION['id']]);
 $anak = $statement->fetchAll();

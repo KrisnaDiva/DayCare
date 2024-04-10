@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . "/../koneksi.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -6,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $koneksi = getKoneksi();
 
-    $sql = "UPDATE anak SET is_deleted = 1 WHERE id = ?";
+    $sql = "DELETE FROM anak WHERE id = ?";
     $statement = $koneksi->prepare($sql);
     $statement->execute([$id]);
 
