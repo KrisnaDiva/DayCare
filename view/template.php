@@ -128,10 +128,16 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                 <?php endif; ?>
 
                 <?php if ($role == 'user'): ?>
-                    <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'testimoni.php' ? 'active' : ''; ?>">
+                    <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'testimoni' ? 'active' : ''; ?>">
                         <a href="testimoni.php">
                             <i class="la la-dashboard"></i>
                             <p>Testimoni</p>
+                        </a>
+                    </li>
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'),  ['daftar_paket', 'detail_paket']) ? 'active' : ''; ?>">
+                        <a href="daftar_paket.php">
+                            <i class="la la-dashboard"></i>
+                            <p>Paket</p>
                         </a>
                     </li>
                 <?php endif; ?>
