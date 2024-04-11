@@ -22,7 +22,7 @@ final class JenisPaket extends AbstractMigration
         $detail_paket = $this->table('jenis_paket');
         $detail_paket->addColumn('periode', 'enum', ['values' => ['Harian', 'Mingguan (Senin - Jumat)', 'Mingguan (Senin - Sabtu)', 'Bulanan (Senin - Jumat)', 'Bulanan (Senin - Sabtu)'], 'null' => false])
             ->addColumn('jenis', 'enum', ['values' => ['Full Day', 'Half Day'], 'null' => false])
-            ->addColumn('harga', 'integer', ['null' => false])
+            ->addColumn('harga', 'biginteger', ['null' => false])
             ->addColumn('paket_id', 'integer', ['limit' => 11, 'signed' => false, 'null' => false])
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP'])

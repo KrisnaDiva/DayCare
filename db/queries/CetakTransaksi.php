@@ -1,0 +1,95 @@
+<?php
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../db/koneksi.php';
+
+$koneksi = getKoneksi();
+$id = $_GET['id'];
+
+$sql = "SELECT * From transaksi where id = ?";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$id]);
+$transaksi = $statement->fetch();
+
+$sql = "SELECT * From anak where id = ? ";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$transaksi['anak_id']]);
+$anak = $statement->fetch();
+
+$sql = "SELECT * From jenis_paket where id = ? ";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$transaksi['jenis_paket_id']]);
+$jenis_paket = $statement->fetch();
+
+$sql = "SELECT * FROM paket where id = ?";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$jenis_paket['paket_id']]);
+$paket = $statement->fetch();
+
+$sql = "SELECT nama FROM users where id = ?";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$transaksi['user_id']]);
+$user = $statement->fetch();
+
+$tanggal_transaksi = date("d-m-Y", strtotime($transaksi['tanggal_transaksi']));
+
+$html = "
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    </style>
+<h1>Detail Transaksi</h1>
+
+<table border='0'>
+    <tr>
+       <td>ID Transaksi : {$transaksi['id']}</td>
+<td style='text-align: right;'>Tanggal Transaksi : {$tanggal_transaksi}</td>
+</tr>    
+</table>
+<br>
+<h4>Rincian Pesanan</h4>
+<table border='1'>
+    <tbody>
+   
+        <tr>
+            <td>Pembeli</td>
+            <td>{$user['nama']}</td>
+        </tr>
+        <tr>
+            <td>Nama Anak</td>
+            <td>{$anak['nama']}</td>
+        </tr>
+        <tr>
+            <td>Nama Paket</td>
+            <td>{$paket['nama']} ({$paket['usia_minimal']} - {$paket['usia_maksimal']} tahun)</td>
+        </tr>
+        <tr>
+            <td>Jenis Paket</td>
+            <td>{$jenis_paket['jenis']}</td>
+        </tr>
+        <tr>
+            <td>Periode Paket</td>
+            <td>{$jenis_paket['periode']}</td>
+        </tr>
+        <tr>
+            <td>Total Bayar</td>
+            <td>Rp" . number_format($transaksi['total_bayar'], 0, ',', '.') . "</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>{$transaksi['status']}</td>
+        </tr>
+    </tbody>
+</table>
+";
+$mpdf = new \Mpdf\Mpdf();
+
+$mpdf->WriteHTML($html);
+
+$mpdf->Output('Detail Transaksi.pdf', 'I');

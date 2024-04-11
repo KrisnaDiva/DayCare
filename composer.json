@@ -1,5 +1,9 @@
 {
     "require-dev": {
         "robmorgan/phinx": "^0.16.0"
+    },
+    "require": {
+        "midtrans/midtrans-php": "^2.5",
+        "mpdf/mpdf": "^8.2"
     }
 }

@@ -65,6 +65,8 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             </li>
                             <?php if ($role == 'user'): ?>
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="pesanan.php"><i class="ti-settings"></i>Pesanan</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="anak.php"><i class="ti-settings"></i>Data Anak</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="beri_penilaian.php"><i class="ti-settings"></i>Beri
@@ -106,14 +108,14 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                         </a>
                     </li>
                     <?php if ($role == 'owner'): ?>
-                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'),  ['admin', 'tambah_admin']) ? 'active' : ''; ?>">
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['admin', 'tambah_admin']) ? 'active' : ''; ?>">
                             <a href="admin.php">
                                 <i class="la la-dashboard"></i>
                                 <p>Admin</p>
                             </a>
                         </li>
                     <?php endif; ?>
-                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'),  ['pengasuh', 'tambah_pengasuh', 'edit_pengasuh']) ? 'active' : ''; ?>">
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengasuh', 'tambah_pengasuh', 'edit_pengasuh']) ? 'active' : ''; ?>">
                         <a href="pengasuh.php">
                             <i class="la la-dashboard"></i>
                             <p>Pengasuh</p>
@@ -134,7 +136,7 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             <p>Testimoni</p>
                         </a>
                     </li>
-                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'),  ['daftar_paket', 'detail_paket']) ? 'active' : ''; ?>">
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['daftar_paket', 'detail_paket']) ? 'active' : ''; ?>">
                         <a href="daftar_paket.php">
                             <i class="la la-dashboard"></i>
                             <p>Paket</p>
