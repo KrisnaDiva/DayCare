@@ -21,8 +21,11 @@ final class Transaksi extends AbstractMigration
     {
         $transaksi = $this->table('transaksi');
         $transaksi->addColumn('user_id', 'integer', ['null' => false])
-            ->addColumn('anak_id', 'integer', ['null' => false])
-            ->addColumn('jenis_paket_id', 'integer', ['null' => false])
+            ->addColumn('nama_paket', 'string', ['limit' => 255, 'null' => false])
+            ->addColumn('periode_paket', 'enum', ['values' => ['Harian', 'Mingguan (Senin - Jumat)', 'Mingguan (Senin - Sabtu)', 'Bulanan (Senin - Jumat)', 'Bulanan (Senin - Sabtu)'], 'null' => false])
+            ->addColumn('jenis_paket', 'enum', ['values' => ['Full Day', 'Half Day'], 'null' => false])
+            ->addColumn('usia_paket', 'string', ['limit' => 255, 'null' => false])
+            ->addColumn('nama_anak', 'string', ['null' => false])
             ->addColumn('status', 'enum', ['values' => ['belum dibayar', 'dibayar', 'dibatalkan'], 'null' => false])
             ->addColumn('total_bayar', 'biginteger', ['null' => false])
             ->addColumn('snap_token', 'string', ['limit' => 255, 'null' => false])

@@ -59,13 +59,11 @@ $anak = $statement->fetchAll();
                         <?= $jenis; ?>
                     </div>
                     <div class="col-3">
-                        <?= $harga; ?>
-                    </div>
+                        Rp<?= number_format($harga, 0, ',', '.'); ?>                    </div>
                 </div>
                 <hr>
                 <form action="../db/queries/Beli.php" method="post">
                     <input type="hidden" name="id" value="<?= $id; ?>">
-                    <input type="hidden" name="harga" value="<?= $harga; ?>">
                     <div class="row">
                         <div class="col-1  d-flex align-items-center justify-content-end">
                             <label for="anak">Anak:</label>

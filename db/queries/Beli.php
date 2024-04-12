@@ -13,13 +13,28 @@ $koneksi = getKoneksi();
 $user_id = $_SESSION['id'];
 $anak_id = $_POST['anak'];
 $jenis_paket_id = $_POST['id'];
-$total_bayar = $_POST['harga'];  // assuming this is the total amount to be paid
+//$total_bayar = $_POST['harga'];
+
+$sql = "SELECT nama From anak where id = ? ";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$anak_id]);
+$anak = $statement->fetch();
+
+$sql = "SELECT * From jenis_paket where id = ? ";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$jenis_paket_id]);
+$jenis_paket = $statement->fetch();
+
+$sql = "SELECT * FROM paket where id = ?";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$jenis_paket['paket_id']]);
+$paket = $statement->fetch();
 
 // Prepare the transaction data for Midtrans
 $params = array(
     'transaction_details' => array(
         'order_id' => rand(),
-        'gross_amount' => $total_bayar,
+        'gross_amount' => $jenis_paket['harga'],
     ),
     // Add more data as needed
 );
@@ -33,9 +48,12 @@ try {
 
 $data = [
     'user_id' => $user_id,
-    'anak_id' => $anak_id,
-    'jenis_paket_id' => $jenis_paket_id,
-    'total_bayar' => $total_bayar,
+    'nama_paket' => $paket['nama'],
+    'usia_paket' => $paket['usia_minimal'] . ' - ' . $paket['usia_maksimal'] . ' tahun',
+    'periode_paket' => $jenis_paket['periode'],
+    'jenis_paket' => $jenis_paket['jenis'],
+    'nama_anak' => $anak['nama'],
+    'total_bayar' => $jenis_paket['harga'],
     'status' => 'belum dibayar',
     'snap_token' => $snap_token
 ];

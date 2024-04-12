@@ -10,21 +10,6 @@ $statement = $koneksi->prepare($sql);
 $statement->execute([$id]);
 $transaksi = $statement->fetch();
 
-$sql = "SELECT * From anak where id = ? ";
-$statement = $koneksi->prepare($sql);
-$statement->execute([$transaksi['anak_id']]);
-$anak = $statement->fetch();
-
-$sql = "SELECT * From jenis_paket where id = ? ";
-$statement = $koneksi->prepare($sql);
-$statement->execute([$transaksi['jenis_paket_id']]);
-$jenis_paket = $statement->fetch();
-
-$sql = "SELECT * FROM paket where id = ?";
-$statement = $koneksi->prepare($sql);
-$statement->execute([$jenis_paket['paket_id']]);
-$paket = $statement->fetch();
-
 $sql = "SELECT nama FROM users where id = ?";
 $statement = $koneksi->prepare($sql);
 $statement->execute([$transaksi['user_id']]);
@@ -63,19 +48,19 @@ $html = "
         </tr>
         <tr>
             <td>Nama Anak</td>
-            <td>{$anak['nama']}</td>
+            <td>{$transaksi['nama_anak']}</td>
         </tr>
         <tr>
             <td>Nama Paket</td>
-            <td>{$paket['nama']} ({$paket['usia_minimal']} - {$paket['usia_maksimal']} tahun)</td>
+            <td>{$transaksi['nama_paket']} ({$transaksi['usia_paket']})</td>
         </tr>
         <tr>
             <td>Jenis Paket</td>
-            <td>{$jenis_paket['jenis']}</td>
+            <td>{$transaksi['jenis_paket']}</td>
         </tr>
         <tr>
             <td>Periode Paket</td>
-            <td>{$jenis_paket['periode']}</td>
+            <td>{$transaksi['periode_paket']}</td>
         </tr>
         <tr>
             <td>Total Bayar</td>

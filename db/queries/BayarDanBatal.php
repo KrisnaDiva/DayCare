@@ -13,6 +13,6 @@ $koneksi = null;
 if ($status == 'dibatalkan') {
     echo "<script type='text/javascript'>
                 alert('Pesanan Dibatalkan');
-                window.location.href = '../../view/pesanan.php';
+                window.location.href = '../../view/pesanan.php?status=dibatalkan';
               </script>";
 }

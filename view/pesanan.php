@@ -27,22 +27,6 @@ $pending = $statement->fetchAll();
     <div class="row justify-content-center">
 
 <?php foreach ($pending as $value): ?>
-    <?php
-    $sql = "SELECT * From anak where id = ? ";
-    $statement = $koneksi->prepare($sql);
-    $statement->execute([$value['anak_id']]);
-    $anak = $statement->fetch();
-
-    $sql = "SELECT * From jenis_paket where id = ? ";
-    $statement = $koneksi->prepare($sql);
-    $statement->execute([$value['jenis_paket_id']]);
-    $jenis_paket = $statement->fetch();
-
-    $sql = "SELECT * FROM paket where id = ?";
-    $statement = $koneksi->prepare($sql);
-    $statement->execute([$jenis_paket['paket_id']]);
-    $paket = $statement->fetch();
-    ?>
     <div class="col-10">
         <div class="card ">
 
@@ -78,17 +62,16 @@ $pending = $statement->fetchAll();
                 <hr>
                 <div class="row text-center">
                     <div class="col-2">
-                        <?= htmlspecialchars($paket['nama']); ?> (<?= htmlspecialchars($paket['usia_minimal']); ?>
-                        - <?= htmlspecialchars($paket['usia_maksimal']); ?> tahun)
+                        <?= htmlspecialchars($value['nama_paket']); ?> (<?= htmlspecialchars($value['usia_paket']); ?>)
                     </div>
                     <div class="col-2">
-                        <?= $jenis_paket['periode']; ?>
+                        <?= $value['periode_paket']; ?>
                     </div>
                     <div class="col-2">
-                        <?= $jenis_paket['jenis']; ?>
+                        <?= $value['jenis_paket']; ?>
                     </div>
                     <div class="col-2">
-                        <?= $anak['nama']; ?>
+                        <?= $value['nama_anak']; ?>
                     </div>
                     <div class="col-2">
                         <?= 'Rp' . number_format($value['total_bayar'], 0, ',', '.'); ?>                    </div>
