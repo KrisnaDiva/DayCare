@@ -30,6 +30,7 @@ $paket = $statement->fetchAll();
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
+                            <th>Foto</th>
                             <th>Usia Minimal</th>
                             <th>Usia Maksimal</th>
                             <th>Aksi</th>
@@ -40,6 +41,10 @@ $paket = $statement->fetchAll();
                             <tr>
                                 <td><?= $key + 1 ?></td>
                                 <td><?= htmlspecialchars($value['nama']); ?></td>
+                                <td>
+                                    <img src="../db/image/<?= htmlspecialchars($value['foto']); ?>" alt="Foto Profil"
+                                         width="50" height="50">
+                                </td>
                                 <td><?= htmlspecialchars($value['usia_minimal']); ?></td>
                                 <td><?= htmlspecialchars($value['usia_maksimal']); ?></td>
                                 <td>

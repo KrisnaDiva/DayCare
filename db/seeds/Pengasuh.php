@@ -22,7 +22,7 @@ class Pengasuh extends AbstractSeed
                 'email'    => 'wisnu@example.com',
                 'nomor_telepon' => '089658444101',
                 'jenis_kelamin' => 'Laki-Laki',
-                'foto' => null,
+                'foto' => '',
                 'tanggal_lahir' => '1980-01-01',
                 'tanggal_bergabung' => '2022-01-01',
             ),
@@ -31,7 +31,7 @@ class Pengasuh extends AbstractSeed
                 'email'    => 'riri@example.com',
                 'nomor_telepon' => '089658444102',
                 'jenis_kelamin' => 'Perempuan',
-                'foto' => null,
+                'foto' => '',
                 'tanggal_lahir' => '1985-01-01',
                 'tanggal_bergabung' => '2022-01-01',
             )

@@ -20,10 +20,12 @@ class Paket extends AbstractSeed
             array(
                 'nama'    => 'Shine Star',
                 'usia_minimal' => 3,
+                'foto' => '',
                 'usia_maksimal' => 10
             ),
             array(
                 'nama'    => 'Tiny Star',
+                'foto' => '',
                 'usia_minimal' => 0,
                 'usia_maksimal' => 2
             )

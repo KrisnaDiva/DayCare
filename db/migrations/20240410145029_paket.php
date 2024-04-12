@@ -21,6 +21,7 @@ final class Paket extends AbstractMigration
     {
         $paket = $this->table('paket');
         $paket->addColumn('nama', 'string', ['limit' => 255, 'null' => false])
+            ->addColumn('foto', 'string', ['limit' => 255, 'null' => false])
             ->addColumn('usia_minimal', 'integer', ['null' => false])
             ->addColumn('usia_maksimal', 'integer', ['null' => false])
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])

@@ -59,7 +59,7 @@ try {
 
     $errorMessage = $e->getMessage();
     echo "<script type='text/javascript'>
-        alert('Data gagal diubah $errorMessage');
+        alert('Data pengasuh gagal diubah $errorMessage');
         window.location.href = '../../view/edit_pengasuh.php?id=$id';
               </script>";
 } finally {
