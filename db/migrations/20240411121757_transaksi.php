@@ -29,7 +29,7 @@ final class Transaksi extends AbstractMigration
             ->addColumn('status', 'enum', ['values' => ['belum dibayar', 'dibayar', 'dibatalkan'], 'null' => false])
             ->addColumn('total_bayar', 'biginteger', ['null' => false])
             ->addColumn('snap_token', 'string', ['limit' => 255, 'null' => false])
-            ->addColumn('tanggal_transaksi', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'null' => false]) // add 'null' => false
+            ->addColumn('tanggal_transaksi', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'null' => false])
             ->create();
     }
 }

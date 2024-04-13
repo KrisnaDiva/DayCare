@@ -127,6 +127,12 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             <p>Paket</p>
                         </a>
                     </li>
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['transaksi']) ? 'active' : ''; ?>">
+                        <a href="transaksi.php">
+                            <i class="la la-dashboard"></i>
+                            <p>Transaksi</p>
+                        </a>
+                    </li>
                 <?php endif; ?>
 
                 <?php if ($role == 'user'): ?>
