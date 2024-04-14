@@ -16,28 +16,30 @@ class Pengasuh extends AbstractSeed
      */
     public function run(): void
     {
-        $data = array(
-            array(
-                'nama'    => 'Wisnu',
-                'email'    => 'wisnu@example.com',
-                'nomor_telepon' => '089658444101',
-                'jenis_kelamin' => 'Laki-Laki',
-                'foto' => '',
-                'tanggal_lahir' => '1980-01-01',
-                'tanggal_bergabung' => '2022-01-01',
-            ),
-            array(
-                'nama'    => 'Riri',
-                'email'    => 'riri@example.com',
-                'nomor_telepon' => '089658444102',
-                'jenis_kelamin' => 'Perempuan',
-                'foto' => '',
-                'tanggal_lahir' => '1985-01-01',
-                'tanggal_bergabung' => '2022-01-01',
-            )
-        );
+        for ($i = 0; $i < 100; $i++) {
+            $data = array(
+                array(
+                    'nama' => 'Wisnu',
+                    'email' => 'wisnu@example.com',
+                    'nomor_telepon' => '089658444101',
+                    'jenis_kelamin' => 'Laki-Laki',
+                    'foto' => '',
+                    'tanggal_lahir' => '1980-01-01',
+                    'tanggal_bergabung' => '2022-01-01',
+                ),
+                array(
+                    'nama' => 'Riri',
+                    'email' => 'riri@example.com',
+                    'nomor_telepon' => '089658444102',
+                    'jenis_kelamin' => 'Perempuan',
+                    'foto' => '',
+                    'tanggal_lahir' => '1985-01-01',
+                    'tanggal_bergabung' => '2022-01-01',
+                )
+            );
 
-        $pengasuh = $this->table('pengasuh');
-        $pengasuh->insert($data)->save();
+            $pengasuh = $this->table('pengasuh');
+            $pengasuh->insert($data)->save();
+        }
     }
 }

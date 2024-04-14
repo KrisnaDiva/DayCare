@@ -16,46 +16,48 @@ class Users extends AbstractSeed
      */
     public function run(): void
     {
-        $data = array(
-            array(
-                'nama'    => 'John Doe',
-                'email'    => 'john.doe@example.com',
-                'password' => password_hash('password', PASSWORD_DEFAULT),
-                'jenis_kelamin' => 'Laki-Laki',
-                'nomor_telepon' => '089658444101',
-                'foto_profil' => null,
-                'role' => 'owner',
-            ),
-            array(
-                'nama'    => 'Jane Doe',
-                'email'    => 'jane.doe@example.com',
-                'password' => password_hash('password', PASSWORD_DEFAULT),
-                'jenis_kelamin' => 'Perempuan',
-                'nomor_telepon' => '089658444102',
-                'foto_profil' => null,
-                'role' => 'admin',
-            ),
-            array(
-                'nama'    => 'Joni Doe',
-                'email'    => 'joni.doe@example.com',
-                'password' => password_hash('password', PASSWORD_DEFAULT),
-                'jenis_kelamin' => 'Laki-Laki',
-                'nomor_telepon' => '089658444103',
-                'foto_profil' => null,
-                'role' => 'user',
-            ),
-            array(
-                'nama'    => 'Krisna Diva',
-                'email'    => 'krisnadiva@example.com',
-                'password' => password_hash('password', PASSWORD_DEFAULT),
-                'jenis_kelamin' => 'Laki-Laki',
-                'nomor_telepon' => '089658444104',
-                'foto_profil' => null,
-                'role' => 'user',
-            )
-        );
+        for ($i = 0; $i < 70; $i++) {
+            $data = array(
+                array(
+                    'nama' => 'John Doe',
+                    'email' => "john.doe$i@example.com",
+                    'password' => password_hash('password', PASSWORD_DEFAULT),
+                    'jenis_kelamin' => 'Laki-Laki',
+                    'nomor_telepon' => '089658444101',
+                    'foto_profil' => null,
+                    'role' => 'owner',
+                ),
+                array(
+                    'nama' => 'Jane Doe',
+                    'email' => "jane.doe$i@example.com",
+                    'password' => password_hash('password', PASSWORD_DEFAULT),
+                    'jenis_kelamin' => 'Perempuan',
+                    'nomor_telepon' => '089658444102',
+                    'foto_profil' => null,
+                    'role' => 'admin',
+                ),
+                array(
+                    'nama' => 'Joni Doe',
+                    'email' => "joni.doe$i@example.com",
+                    'password' => password_hash('password', PASSWORD_DEFAULT),
+                    'jenis_kelamin' => 'Laki-Laki',
+                    'nomor_telepon' => '089658444103',
+                    'foto_profil' => null,
+                    'role' => 'user',
+                ),
+                array(
+                    'nama' => 'Krisna Diva',
+                    'email' => "krisnadiva$i@example.com",
+                    'password' => password_hash('password', PASSWORD_DEFAULT),
+                    'jenis_kelamin' => 'Laki-Laki',
+                    'nomor_telepon' => '089658444104',
+                    'foto_profil' => null,
+                    'role' => 'user',
+                )
+            );
 
-        $user = $this->table('users');
-        $user->insert($data)->save();
+            $user = $this->table('users');
+            $user->insert($data)->save();
+        }
     }
 }

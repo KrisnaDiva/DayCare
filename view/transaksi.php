@@ -73,7 +73,7 @@ $total_pages = ceil($total_rows / $limit);
                     <div class="card-title">Data Transaksi</div>
                 </div>
                 <div class="card-body">
-                    <div class="card-options">
+                    <div class="card-options mb-3">
                         <form method="GET">
                             <div class="row">
                                 <div class="col-3">
@@ -106,7 +106,8 @@ $total_pages = ceil($total_rows / $limit);
                                 </div>
                                 <div class="col-3 d-flex align-items-end ">
                                     <button type="submit" class="btn btn-primary">Filter</button>
-                                    <a href="../db/queries/CetakSemuaTransaksi.php?status=<?= $status ?>&tanggal_awal=<?= $tanggal_awal ?>&tanggal_akhir=<?= $tanggal_akhir ?>" class="btn btn-secondary ml-2">Cetak Transaksi</a>
+                                    <a href="../db/queries/CetakSemuaTransaksi.php?status=<?= $status ?>&tanggal_awal=<?= $tanggal_awal ?>&tanggal_akhir=<?= $tanggal_akhir ?>"
+                                       class="btn btn-secondary ml-2">Cetak Transaksi</a>
                                 </div>
                             </div>
                         </form>
@@ -138,7 +139,7 @@ $total_pages = ceil($total_rows / $limit);
                             <tr>
                                 <td><?= $key + 1 ?></td>
                                 <td><?= htmlspecialchars($value['id']); ?></td>
-                                <td><?= htmlspecialchars($value['nama_paket']).' ('.htmlspecialchars($value['usia_paket']).')';?></td>
+                                <td><?= htmlspecialchars($value['nama_paket']) . ' (' . htmlspecialchars($value['usia_paket']) . ')'; ?></td>
                                 <td><?= htmlspecialchars($value['periode_paket']); ?></td>
                                 <td><?= htmlspecialchars($value['jenis_paket']); ?></td>
                                 <td><?= htmlspecialchars($pembeli['nama']) ?></td>

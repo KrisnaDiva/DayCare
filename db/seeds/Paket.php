@@ -16,22 +16,24 @@ class Paket extends AbstractSeed
      */
     public function run(): void
     {
-        $data = array(
-            array(
-                'nama'    => 'Shine Star',
-                'usia_minimal' => 3,
-                'foto' => '',
-                'usia_maksimal' => 10
-            ),
-            array(
-                'nama'    => 'Tiny Star',
-                'foto' => '',
-                'usia_minimal' => 0,
-                'usia_maksimal' => 2
-            )
-        );
+        for ($i = 0; $i < 100; $i++) {
+            $data = array(
+                array(
+                    'nama' => 'Shine Star',
+                    'usia_minimal' => 3,
+                    'foto' => '',
+                    'usia_maksimal' => 10
+                ),
+                array(
+                    'nama' => 'Tiny Star',
+                    'foto' => '',
+                    'usia_minimal' => 0,
+                    'usia_maksimal' => 2
+                )
+            );
 
-        $paket = $this->table('paket');
-        $paket->insert($data)->save();
+            $paket = $this->table('paket');
+            $paket->insert($data)->save();
+        }
     }
 }

@@ -16,22 +16,24 @@ class Anak extends AbstractSeed
      */
     public function run(): void
     {
-        $data = array(
-            array(
-                'nama'    => 'John Doe',
-                'tanggal_lahir' => date('2023-01-01'),
-                'jenis_kelamin' => 'Laki-Laki',
-                'user_id' => 4,
-            ),
-            array(
-                'nama'    => 'Jane Doe',
-                'tanggal_lahir' => date('2022-01-01'),
-                'jenis_kelamin' => 'Perempuan',
-                'user_id' => 4,
-            )
-        );
+        for ($i = 0; $i < 100; $i++) {
+            $data = array(
+                array(
+                    'nama' => 'John Doe',
+                    'tanggal_lahir' => date('2023-01-01'),
+                    'jenis_kelamin' => 'Laki-Laki',
+                    'user_id' => 4,
+                ),
+                array(
+                    'nama' => 'Jane Doe',
+                    'tanggal_lahir' => date('2022-01-01'),
+                    'jenis_kelamin' => 'Perempuan',
+                    'user_id' => 4,
+                )
+            );
 
-        $anak = $this->table('anak');
-        $anak->insert($data)->save();
+            $anak = $this->table('anak');
+            $anak->insert($data)->save();
+        }
     }
 }

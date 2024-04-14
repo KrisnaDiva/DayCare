@@ -16,70 +16,72 @@ class JenisPaket extends AbstractSeed
      */
     public function run(): void
     {
-        $data = array(
-            array(
-                'periode' => 'Harian',
-                'jenis' => 'Half Day',
-                'harga' => 100000,
-                'paket_id' => 1
-            ),
-            array(
-                'periode' => 'Mingguan (Senin - Jumat)',
-                'jenis' => 'Full Day',
-                'harga' => 400000,
-                'paket_id' => 1
-            ),
-            array(
-                'periode' => 'Mingguan (Senin - Sabtu)',
-                'jenis' => 'Half Day',
-                'harga' => 500000,
-                'paket_id' => 1
-            ),
-            array(
-                'periode' => 'Bulanan (Senin - Jumat)',
-                'jenis' => 'Full Day',
-                'harga' => 1500000,
-                'paket_id' => 1
-            ),
-            array(
-                'periode' => 'Bulanan (Senin - Sabtu)',
-                'jenis' => 'Half Day',
-                'harga' => 2000000,
-                'paket_id' => 1
-            ),
-            array(
-                'periode' => 'Harian',
-                'jenis' => 'Full Day',
-                'harga' => 50000,
-                'paket_id' => 2
-            ),
-            array(
-                'periode' => 'Mingguan (Senin - Jumat)',
-                'jenis' => 'Half Day',
-                'harga' => 200000,
-                'paket_id' => 2
-            ),
-            array(
-                'periode' => 'Mingguan (Senin - Sabtu)',
-                'jenis' => 'Full Day',
-                'harga' => 250000,
-                'paket_id' => 2
-            ),
-            array(
-                'periode' => 'Bulanan (Senin - Jumat)',
-                'jenis' => 'Half Day',
-                'harga' => 750000,
-                'paket_id' => 2
-            ),
-            array(
-                'periode' => 'Bulanan (Senin - Sabtu)',
-                'jenis' => 'Full Day',
-                'harga' => 1000000,
-                'paket_id' => 2
-            )
-        );
+        for ($i = 0; $i < 10; $i++) {
+            $data = array(
+                array(
+                    'periode' => 'Harian',
+                    'jenis' => 'Half Day',
+                    'harga' => 100000,
+                    'paket_id' => 1
+                ),
+                array(
+                    'periode' => 'Mingguan (Senin - Jumat)',
+                    'jenis' => 'Full Day',
+                    'harga' => 400000,
+                    'paket_id' => 1
+                ),
+                array(
+                    'periode' => 'Mingguan (Senin - Sabtu)',
+                    'jenis' => 'Half Day',
+                    'harga' => 500000,
+                    'paket_id' => 1
+                ),
+                array(
+                    'periode' => 'Bulanan (Senin - Jumat)',
+                    'jenis' => 'Full Day',
+                    'harga' => 1500000,
+                    'paket_id' => 1
+                ),
+                array(
+                    'periode' => 'Bulanan (Senin - Sabtu)',
+                    'jenis' => 'Half Day',
+                    'harga' => 2000000,
+                    'paket_id' => 1
+                ),
+                array(
+                    'periode' => 'Harian',
+                    'jenis' => 'Full Day',
+                    'harga' => 50000,
+                    'paket_id' => 2
+                ),
+                array(
+                    'periode' => 'Mingguan (Senin - Jumat)',
+                    'jenis' => 'Half Day',
+                    'harga' => 200000,
+                    'paket_id' => 2
+                ),
+                array(
+                    'periode' => 'Mingguan (Senin - Sabtu)',
+                    'jenis' => 'Full Day',
+                    'harga' => 250000,
+                    'paket_id' => 2
+                ),
+                array(
+                    'periode' => 'Bulanan (Senin - Jumat)',
+                    'jenis' => 'Half Day',
+                    'harga' => 750000,
+                    'paket_id' => 2
+                ),
+                array(
+                    'periode' => 'Bulanan (Senin - Sabtu)',
+                    'jenis' => 'Full Day',
+                    'harga' => 1000000,
+                    'paket_id' => 2
+                )
+            );
 
-        $jenis_paket = $this->table('jenis_paket');
-        $jenis_paket->insert($data)->save();
+            $jenis_paket = $this->table('jenis_paket');
+            $jenis_paket->insert($data)->save();
+        }
     }
 }

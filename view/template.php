@@ -26,6 +26,8 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="../assets/css/ready.css">
     <link rel="stylesheet" href="../assets/css/demo.css">
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
 <div class="wrapper">
@@ -110,26 +112,26 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                     <?php if ($role == 'owner'): ?>
                         <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['admin', 'tambah_admin']) ? 'active' : ''; ?>">
                             <a href="admin.php">
-                                <i class="la la-dashboard"></i>
+                                <i class="las la-user-cog"></i>
                                 <p>Admin</p>
                             </a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengasuh', 'tambah_pengasuh', 'edit_pengasuh']) ? 'active' : ''; ?>">
                         <a href="pengasuh.php">
-                            <i class="la la-dashboard"></i>
+                            <i class="las la-chalkboard-teacher"></i>
                             <p>Pengasuh</p>
                         </a>
                     </li>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['paket', 'jenis_paket', 'tambah_paket', 'tambah_jenis_paket', 'edit_jenis_paket', 'edit_paket']) ? 'active' : ''; ?>">
                         <a href="paket.php">
-                            <i class="la la-dashboard"></i>
+                            <i class="las la-box"></i>
                             <p>Paket</p>
                         </a>
                     </li>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['transaksi']) ? 'active' : ''; ?>">
                         <a href="transaksi.php">
-                            <i class="la la-dashboard"></i>
+                            <i class="las la-file-invoice-dollar"></i>
                             <p>Transaksi</p>
                         </a>
                     </li>
@@ -138,13 +140,13 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                 <?php if ($role == 'user'): ?>
                     <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'testimoni' ? 'active' : ''; ?>">
                         <a href="testimoni.php">
-                            <i class="la la-dashboard"></i>
+                            <i class="las la-comment"></i>
                             <p>Testimoni</p>
                         </a>
                     </li>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['daftar_paket', 'detail_paket']) ? 'active' : ''; ?>">
                         <a href="daftar_paket.php">
-                            <i class="la la-dashboard"></i>
+                            <i class="las la-box"></i>
                             <p>Paket</p>
                         </a>
                     </li>
