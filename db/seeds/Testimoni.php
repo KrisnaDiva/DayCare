@@ -16,15 +16,26 @@ class Testimoni extends AbstractSeed
      */
     public function run(): void
     {
-        $data = array(
-            array(
-                'tingkat_kepuasan'    => 'Puas',
-                'pesan'    => 'amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit',
-                'user_id' => 3,
-            )
-        );
+        for ($i = 1; $i <= 100; $i++) {
+            $data = array(
+                array(
+                    'tingkat_kepuasan' => 'Puas',
+                    'pesan' => 'amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit',
+                    'user_id' => $i++,
+                ),array(
+                    'tingkat_kepuasan' => 'Tidak Puas',
+                    'pesan' => 'amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit',
+                    'user_id' => $i++,
+                ),
+                array(
+                    'tingkat_kepuasan' => 'Biasa Saja',
+                    'pesan' => 'amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit',
+                    'user_id' => $i++,
+                )
+            );
 
-        $testimoni = $this->table('testimoni');
-        $testimoni->insert($data)->save();
+            $testimoni = $this->table('testimoni');
+            $testimoni->insert($data)->save();
+        }
     }
 }

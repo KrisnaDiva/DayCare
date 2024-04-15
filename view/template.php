@@ -138,6 +138,12 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                 <?php endif; ?>
 
                 <?php if ($role == 'user'): ?>
+                    <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'index' ? 'active' : ''; ?>">
+                        <a href="index.php">
+                            <i class="la la-dashboard"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
                     <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'testimoni' ? 'active' : ''; ?>">
                         <a href="testimoni.php">
                             <i class="las la-comment"></i>

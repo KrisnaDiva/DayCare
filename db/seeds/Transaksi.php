@@ -17,9 +17,13 @@ class Transaksi extends AbstractSeed
     public function run(): void
     {
         for ($i = 0; $i < 100; $i++) {
+            // Generate a random date in the range of last 12 months
+            $randomTimestamp = rand(strtotime('-12 months'), time());
+            $randomDate = date('Y-m-d H:i:s', $randomTimestamp);
+
             $data = array(
                 array(
-                    'user_id' => 3,
+                    'user_id' => 4,
                     'nama_paket' => 'Paket Harian',
                     'periode_paket' => 'Harian',
                     'jenis_paket' => 'Full Day',
@@ -28,7 +32,7 @@ class Transaksi extends AbstractSeed
                     'status' => 'dibayar',
                     'total_bayar' => 100000,
                     'snap_token' => 'token1',
-                    'tanggal_transaksi' => '2024-04-12 00:00:00',
+                    'tanggal_transaksi' => $randomDate,
                 ),
                 array(
                     'user_id' => 4,
@@ -37,10 +41,21 @@ class Transaksi extends AbstractSeed
                     'jenis_paket' => 'Half Day',
                     'usia_paket' => '2-3 Tahun',
                     'nama_anak' => 'Anak 2',
-                    'status' => 'dibayar',
+                    'status' => 'belum dibayar',
                     'total_bayar' => 500000,
                     'snap_token' => 'token2',
-                    'tanggal_transaksi' => '2024-04-14 00:00:00',
+                    'tanggal_transaksi' => $randomDate,
+                ),array(
+                    'user_id' => 4,
+                    'nama_paket' => 'Paket Mingguan',
+                    'periode_paket' => 'Mingguan (Senin - Jumat)',
+                    'jenis_paket' => 'Half Day',
+                    'usia_paket' => '2-3 Tahun',
+                    'nama_anak' => 'Anak 2',
+                    'status' => 'dibatalkan',
+                    'total_bayar' => 500000,
+                    'snap_token' => 'token2',
+                    'tanggal_transaksi' => $randomDate,
                 )
             );
 
@@ -49,4 +64,3 @@ class Transaksi extends AbstractSeed
         }
     }
 }
-

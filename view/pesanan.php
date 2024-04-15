@@ -5,10 +5,21 @@ session_start();
 require_once __DIR__ . '/../db/koneksi.php';
 $koneksi = getKoneksi();
 $status = isset($_GET['status']) ? $_GET['status'] : 'dibayar';
-$sql = "SELECT * From transaksi where user_id = ? AND status = ?";
+
+$limit = 5; // Jumlah pesanan per halaman
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
+
+$sql = "SELECT * FROM transaksi WHERE user_id = ? AND status = ? LIMIT $limit OFFSET $offset";
 $statement = $koneksi->prepare($sql);
 $statement->execute([$_SESSION['id'], $status]);
 $pending = $statement->fetchAll();
+
+$sql = "SELECT COUNT(*) FROM transaksi WHERE user_id = ? AND status = ?";
+$statement = $koneksi->prepare($sql);
+$statement->execute([$_SESSION['id'], $status]);
+$total_rows = $statement->fetchColumn();
+$total_pages = ceil($total_rows / $limit);
 ?>
 
     <ul class="nav nav-tabs justify-content-center mb-5">
@@ -112,6 +123,36 @@ $pending = $statement->fetchAll();
         };
     </script>
 <?php endforeach; ?>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <!-- First page link -->
+        <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+            <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=1">First</a>
+        </li>
+        <!-- Previous page link -->
+        <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+            <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $page - 1 ?>"><</a>
+        </li>
+        <?php
+        $start = max(1, $page - 2);
+        $end = min($total_pages, $page + 2);
+        for ($i = $start; $i <= $end; $i++): ?>
+            <li class="page-item <?= $i == $page ? 'active' : '' ?>">
+                <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $i ?>"><?= $i ?></a>
+            </li>
+        <?php endfor; ?>
+        <!-- Next page link -->
+        <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
+            <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $page + 1 ?>">></a>
+        </li>
+        <!-- Last page link -->
+        <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
+            <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $total_pages ?>">Last</a>
+        </li>
+    </ul>
+</nav>
+
 <?php
 $content = ob_get_clean();
 require_once __DIR__ . '/template.php';
