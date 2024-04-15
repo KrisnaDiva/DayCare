@@ -28,7 +28,7 @@ class Transaksi extends AbstractSeed
                     'status' => 'dibayar',
                     'total_bayar' => 100000,
                     'snap_token' => 'token1',
-                    'tanggal_transaksi' => '2024-01-01 00:00:00',
+                    'tanggal_transaksi' => '2024-04-12 00:00:00',
                 ),
                 array(
                     'user_id' => 4,
@@ -40,7 +40,7 @@ class Transaksi extends AbstractSeed
                     'status' => 'dibayar',
                     'total_bayar' => 500000,
                     'snap_token' => 'token2',
-                    'tanggal_transaksi' => '2023-01-02 00:00:00',
+                    'tanggal_transaksi' => '2024-04-14 00:00:00',
                 )
             );
 
