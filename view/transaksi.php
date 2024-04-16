@@ -74,12 +74,12 @@ $total_pages = ceil($total_rows / $limit);
                 </div>
                 <div class="card-body">
                     <div class="card-options mb-3">
-                        <form method="GET">
+                        <form method="GET" onsubmit="this.page.value = 1">
                             <div class="row">
                                 <div class="col-3">
                                     <input type="hidden" name="page" value="<?= $page ?>">
                                     <label for="status">Status</label>
-                                    <select name="status" onchange="this.form.submit()" class="form-control">
+                                    <select name="status" onchange="this.form.page.value = 1; this.form.submit();" class="form-control">
                                         <option value="" <?= $status == '' ? 'selected' : '' ?>>Semua</option>
                                         <option value="dibayar" <?= $status == 'dibayar' ? 'selected' : '' ?>>Dibayar
                                         </option>

@@ -16,7 +16,7 @@ class Users extends AbstractSeed
      */
     public function run(): void
     {
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
             $dataa = array(
                 array(
                     'nama' => 'User',
