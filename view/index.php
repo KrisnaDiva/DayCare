@@ -73,6 +73,7 @@ if ($user['role'] == 'user') {
                 </div>
             </div>
         </div>
+    <?php if ($user['role'] == 'owner'): ?>
         <div class="col-md-3">
             <div class="card card-stats card-success">
                 <div class="card-body ">
@@ -91,6 +92,7 @@ if ($user['role'] == 'user') {
                 </div>
             </div>
         </div>
+    <?php endif; ?>
         <div class="col-md-3">
             <div class="card card-stats card-primary">
                 <div class="card-body ">
@@ -102,7 +104,7 @@ if ($user['role'] == 'user') {
                         </div>
                         <div class="col-7 d-flex align-items-center">
                             <div class="numbers">
-                                <p class="card-category">Order</p>
+                                <p class="card-category">Penjualan</p>
                                 <h4 class="card-title"><?= $total_order ?></h4>
                             </div>
                         </div>
@@ -112,6 +114,7 @@ if ($user['role'] == 'user') {
         </div>
     </div>
     <hr>
+    <?php if ($user['role'] == 'owner'): ?>
 <ul class="nav nav-tabs justify-content-center mb-5">
     <li class="nav-item">
         <a class="nav-link <?php echo ($_GET['chart'] ?? 'penjualan') == 'penjualan' ? 'active' : '' ?>" href="index.php?chart=penjualan">Chart Penjualan</a>
@@ -120,6 +123,8 @@ if ($user['role'] == 'user') {
         <a class="nav-link <?php echo ($_GET['chart'] ?? 'penjualan') == 'pemasukan' ? 'active' : '' ?>" href="index.php?chart=pemasukan">Chart Pemasukan</a>
     </li>
 </ul>
+    <?php endif; ?>
+
     <?php
     $chart = $_GET['chart'] ?? 'penjualan';
 

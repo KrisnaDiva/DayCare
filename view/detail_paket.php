@@ -26,7 +26,7 @@ $paket = $statement->fetch();
                         <p>Jenis : <?= htmlspecialchars($value['jenis']); ?></p>
                         <p>Harga : Rp<?= number_format($value['harga'], 0, ',', '.'); ?></p></div>
                     <div class="card-footer">
-                        <a href="checkout.php?id=<?= $value['id']; ?>" class="btn btn-primary">Chekout</a>
+                        <a href="checkout.php?id=<?= $value['id']; ?>" class="btn btn-primary">Claim</a>
                     </div>
                 </div>
             </div>

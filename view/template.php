@@ -129,10 +129,18 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             <p>Paket</p>
                         </a>
                     </li>
-                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['transaksi']) ? 'active' : ''; ?>">
-                        <a href="transaksi.php">
-                            <i class="las la-file-invoice-dollar"></i>
-                            <p>Transaksi</p>
+                    <?php if ($role == 'owner'): ?>
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['transaksi']) ? 'active' : ''; ?>">
+                            <a href="transaksi.php">
+                                <i class="las la-file-invoice-dollar"></i>
+                                <p>Transaksi</p>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengeluaran', 'pengeluaran_harian']) ? 'active' : ''; ?>">
+                        <a href="pengeluaran.php">
+                            <i class="las la-money-bill-wave-alt"></i>
+                            <p>Pengeluaran</p>
                         </a>
                     </li>
                 <?php endif; ?>
@@ -142,6 +150,12 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                         <a href="index.php">
                             <i class="la la-dashboard"></i>
                             <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['daftar_pengasuh']) ? 'active' : ''; ?>">
+                        <a href="daftar_pengasuh.php">
+                            <i class="las la-chalkboard-teacher"></i>
+                            <p>Pengasuh</p>
                         </a>
                     </li>
                     <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'testimoni' ? 'active' : ''; ?>">
