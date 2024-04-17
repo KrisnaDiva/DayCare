@@ -33,7 +33,7 @@ class Pengeluaran extends AbstractSeed
             array(
                 'total_pengeluaran' => 500000,
                 'keterangan' => 'Pembelian Bahan Baku',
-                'status' => 'belum diisi',
+                'status' => 'pending',
                 'tanggal' => '2024-04-14',
                 'user_id' => '',
             )

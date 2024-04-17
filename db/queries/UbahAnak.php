@@ -18,7 +18,6 @@ if ($stmt->execute(array_values($data))) {
                 window.location.href = '../../view/anak.php';
               </script>";
 }
-$koneksi->rollBack();
 
 echo "<script type='text/javascript'>
         alert('Data anak gagal diubah');

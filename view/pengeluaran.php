@@ -42,12 +42,11 @@ $batasBawah = 2023; // Anda dapat mengubah ini sesuai kebutuhan Anda
                 $mulaiTanggal = date('j', strtotime("{$tahunSekarang}-{$bulanSekarang}-{$mulai}"));
                 $akhirTanggal = date('j F Y', strtotime("{$tahunSekarang}-{$bulanSekarang}-{$akhir}"));
                 ?>
-                <div class="card p-2">
+                <div class="card p-5">
                     <div class="row">
                         <div class="col-6">
                             <div class="row justify-content-center">
                                 <div>
-                                    Belum dibuat
                                     <h4><?= "{$mulaiTanggal}-{$akhirTanggal}<br>"; ?></h4>
                                 </div>
                             </div>
