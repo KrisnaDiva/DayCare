@@ -179,13 +179,10 @@ if ($user['role'] == 'user') {
     $chart = $_GET['chart'] ?? 'penjualan';
 
     if ($chart == 'penjualan') {
-        // Tampilkan chart penjualan
         require_once __DIR__.'/../db/queries/ChartPenjualan.php';
     } else if ($chart == 'pemasukan') {
-        // Tampilkan chart pemasukan
         require_once __DIR__.'/../db/queries/ChartPemasukan.php';
     } else if ($chart == 'pengeluaran') {
-        // Tampilkan chart pengeluaran
         require_once __DIR__.'/../db/queries/ChartPengeluaran.php';
     }
     ?>

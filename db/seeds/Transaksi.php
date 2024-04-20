@@ -8,11 +8,9 @@ class Transaksi extends AbstractSeed
 {
     public function run(): void
     {
-        // Get timestamp for April 1st of this year
         $startTimestamp = strtotime('April 1');
 
         for ($i = 0; $i < 100; $i++) {
-            // Generate a random date in the range of April 1st to now
             $randomTimestamp = rand($startTimestamp, time());
             $randomDate = date('Y-m-d H:i:s', $randomTimestamp);
             $user_id = rand(1, 100);

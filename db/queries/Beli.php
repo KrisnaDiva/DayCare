@@ -4,16 +4,14 @@ require_once __DIR__ . "/../koneksi.php";
 session_start();
 $koneksi = getKoneksi();
 
-\Midtrans\Config::$serverKey = 'SB-Mid-server-UccWNdVCy74kbFk0uSRnYPs4'; // set your server key
-\Midtrans\Config::$isProduction = false; // set to true for production
+\Midtrans\Config::$serverKey = 'SB-Mid-server-UccWNdVCy74kbFk0uSRnYPs4';
+\Midtrans\Config::$isProduction = false;
 \Midtrans\Config::$isSanitized = true;
 \Midtrans\Config::$is3ds = true;
 
-// Get the necessary data from the form
 $user_id = $_SESSION['id'];
 $anak_id = $_POST['anak'];
 $jenis_paket_id = $_POST['id'];
-//$total_bayar = $_POST['harga'];
 
 $sql = "SELECT nama From anak where id = ? ";
 $statement = $koneksi->prepare($sql);
@@ -30,13 +28,11 @@ $statement = $koneksi->prepare($sql);
 $statement->execute([$jenis_paket['paket_id']]);
 $paket = $statement->fetch();
 
-// Prepare the transaction data for Midtrans
 $params = array(
     'transaction_details' => array(
         'order_id' => rand(),
         'gross_amount' => $jenis_paket['harga'],
     ),
-    // Add more data as needed
 );
 
 $snap_token = '';

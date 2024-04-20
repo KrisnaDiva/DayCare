@@ -29,7 +29,7 @@ $html = "
         text-align: left;
     }
      .small-column {
-        width: 20%; /* Ubah sesuai kebutuhan */
+        width: 20%; 
     }
     </style>
 <h1>Detail Transaksi</h1>

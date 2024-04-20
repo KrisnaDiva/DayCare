@@ -4,7 +4,7 @@ ob_start();
 require_once __DIR__ . '/../db/koneksi.php';
 $koneksi = getKoneksi();
 
-$limit = 10; // Jumlah data per halaman
+$limit = 10;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
@@ -15,7 +15,6 @@ $statement->bindParam(':offset', $offset, PDO::PARAM_INT);
 $statement->execute();
 $pengasuh = $statement->fetchAll();
 
-// Menghitung total halaman
 $sql = "SELECT COUNT(*) FROM pengasuh";
 $statement = $koneksi->prepare($sql);
 $statement->execute();
@@ -78,12 +77,10 @@ $total_pages = ceil($total_rows / $limit);
                 </div>
                 <div class="card-footer">
                     <?php
-                    // Hitung jumlah entri yang ditampilkan
                     $entries_start = $offset + 1;
                     $entries_end = $offset + count($pengasuh);
                     $total_entries = $total_rows;
 
-                    // Tampilkan teks
                     echo "Menampilkan {$entries_start} sampai {$entries_end} dari {$total_entries} data"; ?>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">

@@ -11,15 +11,15 @@ $paket = $statement->fetchAll();
 ?>
 <style>
     .card-header {
-    height:400px; /* Atur tinggi sesuai kebutuhan Anda */
-    width: 100%; /* Atur lebar sesuai kebutuhan Anda */
-    overflow: hidden; /* Memastikan bagian gambar yang berlebihan dipotong */
+    height:400px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .card-img-top {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Gambar akan menutupi seluruh area yang ditentukan */
+    object-fit: cover;
 }
 </style>
     <div class="row justify-content-center mb-3">

@@ -9,7 +9,7 @@ $jumlahHari = cal_days_in_month(CAL_GREGORIAN, $bulanSekarang, $tahunSekarang);
 $mingguDalamSebulan = ceil($jumlahHari / 7);
 
 $batasAtas = date('Y');
-$batasBawah = 2023; // Anda dapat mengubah ini sesuai kebutuhan Anda
+$batasBawah = 2023;
 ?>
     <div class="row justify-content-center mb-3">
         <select name="bulan" class="form-control col-4" id="bulan" onchange="updateQueryParams()">

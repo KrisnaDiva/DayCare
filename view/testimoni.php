@@ -6,7 +6,7 @@ $koneksi = getKoneksi();
 
 $tingkat_kepuasan = isset($_GET['tingkat_kepuasan']) ? $_GET['tingkat_kepuasan'] : '';
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$limit = 10; // Jumlah item per halaman
+$limit = 10;
 $offset = ($page - 1) * $limit;
 
 $sql = "SELECT * FROM testimoni";
@@ -68,11 +68,9 @@ $total_pages = ceil($total_rows / $limit);
 
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
-        <!-- First page link -->
         <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
             <a class="page-link" href="testimoni.php?tingkat_kepuasan=<?= $tingkat_kepuasan ?>&page=1">First</a>
         </li>
-        <!-- Previous page link -->
         <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
             <a class="page-link" href="testimoni.php?tingkat_kepuasan=<?= $tingkat_kepuasan ?>&page=<?= max(1, $page - 1) ?>"><</a>
         </li>
@@ -84,11 +82,9 @@ $total_pages = ceil($total_rows / $limit);
                 <a class="page-link" href="testimoni.php?tingkat_kepuasan=<?= $tingkat_kepuasan ?>&page=<?= $i ?>"><?= $i ?></a>
             </li>
         <?php endfor; ?>
-        <!-- Next page link -->
         <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
             <a class="page-link" href="testimoni.php?tingkat_kepuasan=<?= $tingkat_kepuasan ?>&page=<?= min($total_pages, $page + 1) ?>">></a>
         </li>
-        <!-- Last page link -->
         <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
             <a class="page-link" href="testimoni.php?tingkat_kepuasan=<?= $tingkat_kepuasan ?>&page=<?= $total_pages ?>">Last</a>
         </li>
