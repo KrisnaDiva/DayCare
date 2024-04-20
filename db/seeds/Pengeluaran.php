@@ -16,28 +16,19 @@ class Pengeluaran extends AbstractSeed
      */
     public function run(): void
     {
-        $data = array(
-            array(
-                'total_pengeluaran' => 100000,
-                'keterangan' => 'Pembelian Bahan Baku',
-                'status' => 'diterima',
-                'tanggal' => '2024-04-16',
-                'user_id' => '',
-            ), array(
-                'total_pengeluaran' => 500000,
-                'keterangan' => 'Pembelian Bahan Baku',
-                'status' => 'ditolak',
-                'tanggal' => '2024-04-15',
-                'user_id' => '',
-            ),
-            array(
-                'total_pengeluaran' => 500000,
-                'keterangan' => 'Pembelian Bahan Baku',
+        $data = [];
+        for ($i = 1; $i <= 20; $i++) {
+            $tanggal = date('Y-m-d', strtotime("2024-04-$i"));
+            $total_pengeluaran = $i * 10000; // contoh perhitungan total pengeluaran
+            $keterangan = "Pembelian Bahan Baku tanggal $tanggal"; // contoh keterangan
+            $data[] = [
+                'total_pengeluaran' => $total_pengeluaran,
+                'keterangan' => $keterangan,
                 'status' => 'pending',
-                'tanggal' => '2024-04-14',
-                'user_id' => '',
-            )
-        );
+                'tanggal' => $tanggal,
+                'user_id' => 102,
+            ];
+        }
 
         $pengeluaran = $this->table('pengeluaran');
         $pengeluaran->insert($data)->save();

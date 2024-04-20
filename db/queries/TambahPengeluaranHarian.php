@@ -1,12 +1,14 @@
 <?php
 require_once __DIR__ . "/../koneksi.php";
 
+session_start();
 $koneksi = getKoneksi();
 $data = [
     'tanggal' => $_POST['tanggal'],
     'keterangan' => $_POST['keterangan'],
     'total_pengeluaran' => $_POST['total_pengeluaran'],
     'status' => 'pending',
+    'user_id' => $_SESSION['id']
 ];
 $placeholders = str_repeat('?,', count($data) - 1) . '?';
 $fields = implode(',', array_keys($data));

@@ -48,26 +48,32 @@ $html .= "<table border='1'>
     <thead>
         <tr>
             <th>ID Transaksi</th>
-            <th>Nama Anak</th>
             <th>Nama Paket</th>
-            <th>Jenis Paket</th>
             <th>Periode Paket</th>
-            <th>Total Bayar</th>
+            <th>Jenis Paket</th>
+            <th>Pembeli</th>
+            <th>Nama Anak</th>
             <th>Status</th>
+            <th>Total Bayar</th>
             <th>Tanggal Transaksi</th>
         </tr>
     </thead>
     <tbody>";
 
 foreach ($transaksi as $trans) {
+    $sql = "SELECT nama FROM users WHERE id = ?";
+    $statement = $koneksi->prepare($sql);
+    $statement->execute([$trans['user_id']]);
+    $pembeli = $statement->fetch();
     $html .= "<tr>
         <td>{$trans['id']}</td>
-        <td>{$trans['nama_anak']}</td>
         <td>{$trans['nama_paket']} ({$trans['usia_paket']})</td>
-        <td>{$trans['jenis_paket']}</td>
         <td>{$trans['periode_paket']}</td>
-        <td>Rp" . number_format($trans['total_bayar'], 0, ',', '.') . "</td>
+        <td>{$trans['jenis_paket']}</td>
+        <td>{$pembeli['nama']}</td>
+        <td>{$trans['nama_anak']}</td>
         <td>{$trans['status']}</td>
+        <td>Rp" . number_format($trans['total_bayar'], 0, ',', '.') . "</td>
         <td>" . date("d-m-Y", strtotime($trans['tanggal_transaksi'])) . "</td>
     </tr>";
 }

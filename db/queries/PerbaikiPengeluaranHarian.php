@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/../koneksi.php";
 
+session_start();
 $koneksi = getKoneksi();
 $id = $_POST['id'];
 $data = [
@@ -8,6 +9,7 @@ $data = [
     'keterangan' => $_POST['keterangan'],
     'total_pengeluaran' => $_POST['total_pengeluaran'],
     'status' => 'pending',
+    'user_id' => $_SESSION['id']
 ];
 $fields = implode('=?,', array_keys($data)) . '=?';
 $stmt = $koneksi->prepare("UPDATE pengeluaran SET $fields WHERE id = $id");

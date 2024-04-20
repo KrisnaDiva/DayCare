@@ -137,8 +137,8 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             </a>
                         </li>
                     <?php endif; ?>
-                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengeluaran', 'pengeluaran_harian']) ? 'active' : ''; ?>">
-                        <a href="pengeluaran.php">
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengeluaran', 'pengeluaran_harian', 'laporan_pengeluaran']) ? 'active' : ''; ?>">
+                        <a href="<?= $role == 'owner' ? 'laporan_pengeluaran.php' : 'pengeluaran.php'; ?>">
                             <i class="las la-money-bill-wave-alt"></i>
                             <p>Pengeluaran</p>
                         </a>

@@ -8,20 +8,20 @@ $limit = 10; // Jumlah data per halaman
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
-$status = isset($_GET['status']) ? $_GET['status'] : 'dibayar';
+$status = isset($_GET['status']) ? $_GET['status'] : 'diterima';
 $tanggal_awal = isset($_GET['tanggal_awal']) ? $_GET['tanggal_awal'] : null;
 $tanggal_akhir = isset($_GET['tanggal_akhir']) ? $_GET['tanggal_akhir'] : null;
 
 if ($status) {
-    $sql = "SELECT * FROM transaksi WHERE status = :status";
+    $sql = "SELECT * FROM pengeluaran WHERE status = :status";
     if ($tanggal_awal && $tanggal_akhir) {
-        $sql .= " AND tanggal_transaksi BETWEEN :tanggal_awal AND :tanggal_akhir";
+        $sql .= " AND tanggal BETWEEN :tanggal_awal AND :tanggal_akhir";
     }
     $sql .= " LIMIT :limit OFFSET :offset";
 } else {
-    $sql = "SELECT * FROM transaksi";
+    $sql = "SELECT * FROM pengeluaran";
     if ($tanggal_awal && $tanggal_akhir) {
-        $sql .= " WHERE tanggal_transaksi BETWEEN :tanggal_awal AND :tanggal_akhir";
+        $sql .= " WHERE tanggal BETWEEN :tanggal_awal AND :tanggal_akhir";
     }
     $sql .= " LIMIT :limit OFFSET :offset";
 }
@@ -37,18 +37,18 @@ if ($tanggal_awal && $tanggal_akhir) {
 $statement->bindParam(':limit', $limit, PDO::PARAM_INT);
 $statement->bindParam(':offset', $offset, PDO::PARAM_INT);
 $statement->execute();
-$transaksi = $statement->fetchAll();
+$pengeluaran = $statement->fetchAll();
 
 // Menghitung total halaman
 if ($status) {
-    $sql = "SELECT COUNT(*) FROM transaksi WHERE status = :status";
+    $sql = "SELECT COUNT(*) FROM pengeluaran WHERE status = :status";
     if ($tanggal_awal && $tanggal_akhir) {
-        $sql .= " AND tanggal_transaksi BETWEEN :tanggal_awal AND :tanggal_akhir";
+        $sql .= " AND tanggal BETWEEN :tanggal_awal AND :tanggal_akhir";
     }
 } else {
-    $sql = "SELECT COUNT(*) FROM transaksi";
+    $sql = "SELECT COUNT(*) FROM pengeluaran";
     if ($tanggal_awal && $tanggal_akhir) {
-        $sql .= " WHERE tanggal_transaksi BETWEEN :tanggal_awal AND :tanggal_akhir";
+        $sql .= " WHERE tanggal BETWEEN :tanggal_awal AND :tanggal_akhir";
     }
 }
 
@@ -70,7 +70,7 @@ $total_pages = ceil($total_rows / $limit);
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Data Transaksi</div>
+                    <div class="card-title">Data Pengeluaran</div>
                 </div>
                 <div class="card-body">
                     <div class="card-options mb-3">
@@ -79,16 +79,16 @@ $total_pages = ceil($total_rows / $limit);
                                 <div class="col-3">
                                     <input type="hidden" name="page" value="<?= $page ?>">
                                     <label for="status">Status</label>
-                                    <select name="status" onchange="this.form.page.value = 1; this.form.submit();" class="form-control">
+                                    <select name="status" onchange="this.form.page.value = 1; this.form.submit();"
+                                            class="form-control">
                                         <option value="" <?= $status == '' ? 'selected' : '' ?>>Semua</option>
-                                        <option value="dibayar" <?= $status == 'dibayar' ? 'selected' : '' ?>>Dibayar
+                                        <option value="diterima" <?= $status == 'diterima' ? 'selected' : '' ?>>Diterima
                                         </option>
-                                        <option value="belum dibayar" <?= $status == 'belum dibayar' ? 'selected' : '' ?>>
-                                            Belum
-                                            Dibayar
+                                        <option value="pending" <?= $status == 'pending' ? 'selected' : '' ?>>
+                                            Pending
                                         </option>
-                                        <option value="dibatalkan" <?= $status == 'dibatalkan' ? 'selected' : '' ?>>
-                                            Dibatalkan
+                                        <option value="ditolak" <?= $status == 'ditolak' ? 'selected' : '' ?>>
+                                            Ditolak
                                         </option>
                                     </select>
                                 </div>
@@ -104,10 +104,12 @@ $total_pages = ceil($total_rows / $limit);
                                            class="form-control">
 
                                 </div>
-                          <div class="col-3 d-flex align-items-end ">
-    <button type="submit" class="btn btn-primary">Filter</button>
-    <button type="submit" formaction="../db/queries/CetakSemuaTransaksi.php" class="btn btn-secondary ml-2">Cetak Transaksi</button>
-</div>
+                                <div class="col-3 d-flex align-items-end ">
+                                    <button type="submit" class="btn btn-primary">Filter</button>
+                                    <button type="submit" formaction="../db/queries/CetakSemuaPengeluaran.php"
+                                            class="btn btn-secondary ml-2">Cetak Pengeluaran
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -116,36 +118,36 @@ $total_pages = ceil($total_rows / $limit);
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID Transaksi</th>
-                            <th>Nama Paket</th>
-                            <th>Periode Paket</th>
-                            <th>Jenis Paket</th>
-                            <th>Pembeli</th>
-                            <th>Nama Anak</th>
+                            <th>Total Pengeluaran</th>
+                            <th>Keterangan</th>
+                            <th>Tanggal</th>
                             <th>Status</th>
-                            <th>Total Bayar</th>
-                            <th>Tanggal Transaksi</th>
+                            <th>Dibuat Oleh</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($transaksi as $key => $value): ?>
+                        <?php foreach ($pengeluaran as $key => $value): ?>
                             <?php
                             $sql = "SELECT nama FROM users WHERE id = ?";
                             $statement = $koneksi->prepare($sql);
                             $statement->execute([$value['user_id']]);
-                            $pembeli = $statement->fetch();
+                            $admin = $statement->fetch();
                             ?>
                             <tr>
                                 <td><?= $key + 1 ?></td>
-                                <td><?= htmlspecialchars($value['id']); ?></td>
-                                <td><?= htmlspecialchars($value['nama_paket']) . ' (' . htmlspecialchars($value['usia_paket']) . ')'; ?></td>
-                                <td><?= htmlspecialchars($value['periode_paket']); ?></td>
-                                <td><?= htmlspecialchars($value['jenis_paket']); ?></td>
-                                <td><?= htmlspecialchars($pembeli['nama']) ?></td>
-                                <td><?= htmlspecialchars($value['nama_anak']); ?></td>
+                                <td><?= htmlspecialchars($value['total_pengeluaran']); ?></td>
+                                <td><?= htmlspecialchars($value['keterangan']); ?></td>
+                                <td><?= htmlspecialchars($value['tanggal']); ?></td>
                                 <td><?= htmlspecialchars($value['status']); ?></td>
-                                <td><?= htmlspecialchars($value['total_bayar']); ?></td>
-                                <td><?= htmlspecialchars($value['tanggal_transaksi']); ?></td>
+                                <td><?= htmlspecialchars($admin['nama']) ?></td>
+                                <?php if ($value['status'] == 'pending'): ?>
+                                    <td>
+                                        <a href="../db/queries/TerimaPengeluaranHarian.php?id=<?= $value['id'] ?>"
+                                           class="btn btn-success"><i class="las la-check"></i></a>
+                                        <a href="../db/queries/TolakPengeluaranHarian.php?id=<?= $value['id'] ?>"
+                                           class="btn btn-danger"><i class="las la-times"></i></a>
+                                    </td>
+                                <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -155,7 +157,7 @@ $total_pages = ceil($total_rows / $limit);
                     <?php
                     // Hitung jumlah entri yang ditampilkan
                     $entries_start = $offset + 1;
-                    $entries_end = $offset + count($transaksi);
+                    $entries_end = $offset + count($pengeluaran);
                     $total_entries = $total_rows;
 
                     // Tampilkan teks
