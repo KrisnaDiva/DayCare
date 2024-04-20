@@ -123,35 +123,35 @@ $total_pages = ceil($total_rows / $limit);
         };
     </script>
 <?php endforeach; ?>
-
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <!-- First page link -->
-        <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
-            <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=1">First</a>
-        </li>
-        <!-- Previous page link -->
-        <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
-            <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $page - 1 ?>"><</a>
-        </li>
-        <?php
-        $start = max(1, $page - 2);
-        $end = min($total_pages, $page + 2);
-        for ($i = $start; $i <= $end; $i++): ?>
-            <li class="page-item <?= $i == $page ? 'active' : '' ?>">
-                <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $i ?>"><?= $i ?></a>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <!-- First page link -->
+            <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=1">First</a>
             </li>
-        <?php endfor; ?>
-        <!-- Next page link -->
-        <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
-            <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $page + 1 ?>">></a>
-        </li>
-        <!-- Last page link -->
-        <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
-            <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $total_pages ?>">Last</a>
-        </li>
-    </ul>
-</nav>
+            <!-- Previous page link -->
+            <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $page - 1 ?>"><</a>
+            </li>
+            <?php
+            $start = max(1, $page - 2);
+            $end = min($total_pages, $page + 2);
+            for ($i = $start; $i <= $end; $i++): ?>
+                <li class="page-item <?= $i == $page ? 'active' : '' ?>">
+                    <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $i ?>"><?= $i ?></a>
+                </li>
+            <?php endfor; ?>
+            <!-- Next page link -->
+            <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
+                <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $page + 1 ?>">></a>
+            </li>
+            <!-- Last page link -->
+            <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
+                <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=<?= $total_pages ?>">Last</a>
+            </li>
+        </ul>
+    </nav>
 
 <?php
 $content = ob_get_clean();

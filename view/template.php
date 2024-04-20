@@ -13,6 +13,10 @@ $nama = htmlspecialchars($user['nama']);
 $email = htmlspecialchars($user['email']);
 $role = htmlspecialchars($user['role']);
 $foto_profil = htmlspecialchars($user['foto_profil']);
+
+$sql = "UPDATE transaksi SET status = 'dibatalkan' WHERE status = 'belum dibayar' AND tanggal_transaksi < NOW() - INTERVAL 1 DAY";
+$statement = $koneksi->prepare($sql);
+$statement->execute();
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,7 +38,7 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
     <div class="main-header">
         <div class="logo-header">
             <a href="index.php" class="logo">
-                Ready Dashboard
+                Hoshiko Day Care
             </a>
             <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">

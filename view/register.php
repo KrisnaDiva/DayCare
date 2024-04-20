@@ -17,9 +17,9 @@ guest();
 <div class="row justify-content-center">
     <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
         <div class="text-center my-5">
-            <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="100">
+            <img src="../assets/img/logo.jpeg" alt="logo" width="50%">
         </div>
-        <div class="card shadow-lg">
+        <div class="card shadow-lg mb-5">
             <div class="card-header text-center">
                 <h1 class="fs-4 card-title fw-bold">Register</h1>
             </div>
@@ -72,9 +72,6 @@ guest();
                     Already have an account? <a href="login.php" class="text-dark">Login</a>
                 </div>
             </div>
-        </div>
-        <div class="text-center mt-5 text-muted">
-            Copyright &copy; 2017-2021 &mdash; Your Company
         </div>
     </div>
 </div>

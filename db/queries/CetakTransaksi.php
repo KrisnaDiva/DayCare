@@ -28,6 +28,9 @@ $html = "
         padding: 10px;
         text-align: left;
     }
+     .small-column {
+        width: 20%; /* Ubah sesuai kebutuhan */
+    }
     </style>
 <h1>Detail Transaksi</h1>
 
@@ -39,35 +42,35 @@ $html = "
 </table>
 <br>
 <h4>Rincian Pesanan</h4>
-<table border='1'>
+<table border='0'>
     <tbody>
    
         <tr>
-            <td>Pembeli</td>
+            <td class='small-column'>Pembeli :</td>
             <td>{$user['nama']}</td>
         </tr>
         <tr>
-            <td>Nama Anak</td>
+            <td>Nama Anak :</td>
             <td>{$transaksi['nama_anak']}</td>
         </tr>
         <tr>
-            <td>Nama Paket</td>
+            <td>Nama Paket :</td>
             <td>{$transaksi['nama_paket']} ({$transaksi['usia_paket']})</td>
         </tr>
         <tr>
-            <td>Jenis Paket</td>
+            <td>Jenis Paket :</td>
             <td>{$transaksi['jenis_paket']}</td>
         </tr>
         <tr>
-            <td>Periode Paket</td>
+            <td>Periode Paket :</td>
             <td>{$transaksi['periode_paket']}</td>
         </tr>
         <tr>
-            <td>Total Bayar</td>
+            <td>Total Bayar :</td>
             <td>Rp" . number_format($transaksi['total_bayar'], 0, ',', '.') . "</td>
         </tr>
         <tr>
-            <td>Status</td>
+            <td>Status :</td>
             <td>{$transaksi['status']}</td>
         </tr>
     </tbody>

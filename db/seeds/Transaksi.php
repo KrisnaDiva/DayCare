@@ -6,24 +6,19 @@ use Phinx\Seed\AbstractSeed;
 
 class Transaksi extends AbstractSeed
 {
-    /**
-     * Run Method.
-     *
-     * Write your database seeder using this method.
-     *
-     * More information on writing seeders is available here:
-     * https://book.cakephp.org/phinx/0/en/seeding.html
-     */
     public function run(): void
     {
-        for ($i = 0; $i < 100; $i++) {
-            // Generate a random date in the range of last 12 months
-            $randomTimestamp = rand(strtotime('-12 months'), time());
-            $randomDate = date('Y-m-d H:i:s', $randomTimestamp);
+        // Get timestamp for April 1st of this year
+        $startTimestamp = strtotime('April 1');
 
+        for ($i = 0; $i < 100; $i++) {
+            // Generate a random date in the range of April 1st to now
+            $randomTimestamp = rand($startTimestamp, time());
+            $randomDate = date('Y-m-d H:i:s', $randomTimestamp);
+            $user_id = rand(1, 100);
             $data = array(
                 array(
-                    'user_id' => 4,
+                    'user_id' => $user_id,
                     'nama_paket' => 'Paket Harian',
                     'periode_paket' => 'Harian',
                     'jenis_paket' => 'Full Day',
@@ -35,7 +30,7 @@ class Transaksi extends AbstractSeed
                     'tanggal_transaksi' => $randomDate,
                 ),
                 array(
-                    'user_id' => 4,
+                    'user_id' => $user_id,
                     'nama_paket' => 'Paket Mingguan',
                     'periode_paket' => 'Mingguan (Senin - Jumat)',
                     'jenis_paket' => 'Half Day',
@@ -45,8 +40,9 @@ class Transaksi extends AbstractSeed
                     'total_bayar' => 500000,
                     'snap_token' => 'token2',
                     'tanggal_transaksi' => $randomDate,
-                ),array(
-                    'user_id' => 4,
+                ),
+                array(
+                    'user_id' => $user_id,
                     'nama_paket' => 'Paket Mingguan',
                     'periode_paket' => 'Mingguan (Senin - Jumat)',
                     'jenis_paket' => 'Half Day',

@@ -6,20 +6,28 @@ use Phinx\Seed\AbstractSeed;
 
 class Pengeluaran extends AbstractSeed
 {
-    /**
-     * Run Method.
-     *
-     * Write your database seeder using this method.
-     *
-     * More information on writing seeders is available here:
-     * https://book.cakephp.org/phinx/0/en/seeding.html
-     */
     public function run(): void
     {
         $data = [];
-        for ($i = 1; $i <= 20; $i++) {
-            $tanggal = date('Y-m-d', strtotime("2024-04-$i"));
-            $total_pengeluaran = $i * 10000; // contoh perhitungan total pengeluaran
+        // Get timestamp for April 1st of this year
+        $startTimestamp = strtotime('April 1');
+
+        // Calculate the number of days from April 1st to now
+        $numDays = (time() - $startTimestamp) / (24 * 60 * 60);
+
+        // Generate an array of all dates from April 1st to now
+        $dates = [];
+        for ($i = $startTimestamp; $i <= time(); $i += 24 * 60 * 60) {
+            $dates[] = date('Y-m-d', $i);
+        }
+
+        // Shuffle the array to get random dates
+        shuffle($dates);
+
+        for ($i = 0; $i < $numDays; $i++) {
+            // Take one date from the array for each entry
+            $tanggal = array_pop($dates);
+            $total_pengeluaran = ($i + 1) * 10000; // contoh perhitungan total pengeluaran
             $keterangan = "Pembelian Bahan Baku tanggal $tanggal"; // contoh keterangan
             $data[] = [
                 'total_pengeluaran' => $total_pengeluaran,
