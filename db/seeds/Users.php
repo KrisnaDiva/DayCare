@@ -23,6 +23,7 @@ class Users extends AbstractSeed
                     'email' => "user$i@example.com",
                     'password' => password_hash('password', PASSWORD_DEFAULT),
                     'jenis_kelamin' => 'Laki-Laki',
+                    'alamat' => "Jl. Setapak No. $i",
                     'nomor_telepon' => '089658444103',
                     'foto_profil' => null,
                     'role' => 'user',

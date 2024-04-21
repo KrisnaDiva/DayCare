@@ -7,6 +7,7 @@ $data = [
     'email' => $_POST['email'],
     'nomor_telepon' => $_POST['nomor_telepon'],
     'jenis_kelamin' => $_POST['jenis_kelamin'],
+    'alamat' => $_POST['alamat'],
     'role' => 'user',
     'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
 ];

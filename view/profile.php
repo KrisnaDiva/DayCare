@@ -5,7 +5,7 @@ require_once __DIR__ . '/../db/koneksi.php';
 session_start();
 $koneksi = getKoneksi();
 
-$sql = "SELECT nama, jenis_kelamin, nomor_telepon, email,foto_profil FROM users WHERE id = ?";
+$sql = "SELECT nama, jenis_kelamin, nomor_telepon, email, foto_profil, alamat FROM users WHERE id = ?";
 $statement = $koneksi->prepare($sql);
 $statement->execute([$_SESSION['id']]);
 $user = $statement->fetch();
@@ -15,6 +15,7 @@ $nomor_telepon = htmlspecialchars($user['nomor_telepon']);
 $email = htmlspecialchars($user['email']);
 $jenis_kelamin = htmlspecialchars($user['jenis_kelamin']);
 $foto_profil = htmlspecialchars($user['foto_profil']);
+$alamat = htmlspecialchars($user['alamat']);
 ?>
     <div class="row justify-content-center mb-3">
         <div class="col-md-8">
@@ -60,6 +61,10 @@ $foto_profil = htmlspecialchars($user['foto_profil']);
                             <label for="nomor_telepon">Nomor Telpon</label>
                             <input type="number" class="form-control" name="nomor_telepon"
                                    value="<?= $nomor_telepon; ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea class="form-control" name="alamat" required><?= $alamat ?></textarea>
                         </div>
                     </div>
                     <div class="card-action">

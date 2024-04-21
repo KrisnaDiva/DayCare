@@ -28,22 +28,22 @@ guest();
                     <div class="mb-3">
                         <label class="mb-2 text-muted" for="nama">Nama</label>
                         <input id="nama" type="text" class="form-control" name="nama"  required autofocus>
-                        <div class="invalid-feedback">
-                        </div>
                     </div>
 
                     <div class="mb-3">
                         <label class="mb-2 text-muted" for="email">E-Mail</label>
                         <input id="email" type="email" class="form-control" name="email"  required>
-                        <div class="invalid-feedback">
-                        </div>
+
                     </div>
 
                     <div class="mb-3">
                         <label class="mb-2 text-muted" for="nomor_telepon">Nomor Telepon</label>
                         <input id="nomor_telepon" type="number" class="form-control" name="nomor_telepon"  required>
-                        <div class="invalid-feedback">
-                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="mb-2 text-muted" for="alamat">Alamat</label>
+                        <textarea id="alamat" class="form-control" name="alamat"  required></textarea>
                     </div>
 
                     <div class="mb-3">
@@ -59,8 +59,6 @@ guest();
                         <label class="mb-2 text-muted" for="password">Password</label>
                         <input id="password" type="password" class="form-control" name="password" required
                                minlength="8">
-                        <div class="invalid-feedback">
-                        </div>
                     </div>
                     <div class="d-grid">
                         <button class="btn btn-primary" type="submit">Register</button>

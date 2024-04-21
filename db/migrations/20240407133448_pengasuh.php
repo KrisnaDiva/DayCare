@@ -16,8 +16,6 @@ final class Pengasuh extends AbstractMigration
             ->addColumn('foto', 'string', ['limit' => 255, 'null' => false])
             ->addColumn('tanggal_lahir', 'date', ['null' => false])
             ->addColumn('tanggal_bergabung', 'date', ['null' => false])
-            ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP'])
             ->create();
     }
 }

@@ -24,8 +24,6 @@ final class JenisPaket extends AbstractMigration
             ->addColumn('jenis', 'enum', ['values' => ['Full Day', 'Half Day'], 'null' => false])
             ->addColumn('harga', 'biginteger', ['null' => false])
             ->addColumn('paket_id', 'integer', ['limit' => 11, 'signed' => false, 'null' => false])
-            ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP'])
             ->create();
     }
 }

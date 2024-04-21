@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nomor_telepon = $_POST['nomor_telepon'];
     $jenis_kelamin = $_POST['jenis_kelamin'];
     $email_baru = $_POST['email'];
+    $alamat = $_POST['alamat'];
 
     $koneksi = getKoneksi();
 
@@ -20,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email_lama = $user['email'];
 
         if ($email_baru !== $email_lama) {
-            // Cek apakah email baru sudah digunakan
             $sql = "SELECT COUNT(*) FROM users WHERE email = ?";
             $statement = $koneksi->prepare($sql);
             $statement->execute([$email_baru]);
@@ -30,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 throw new Exception("Email sudah digunakan");
             }
 
-            $sql = "UPDATE users SET nama = ?, jenis_kelamin = ?, nomor_telepon = ?, email = ? WHERE id = ?";
+            $sql = "UPDATE users SET nama = ?, jenis_kelamin = ?, nomor_telepon = ?, email = ?, alamat = ? WHERE id = ?";
             $statement = $koneksi->prepare($sql);
-            $statement->execute([$nama, $jenis_kelamin, $nomor_telepon, $email_baru, $_SESSION['id']]);
+            $statement->execute([$nama, $jenis_kelamin, $nomor_telepon, $email_baru, $alamat, $_SESSION['id']]);
         } else {
-            $sql = "UPDATE users SET nama = ?, jenis_kelamin = ?, nomor_telepon = ? WHERE id = ?";
+            $sql = "UPDATE users SET nama = ?, jenis_kelamin = ?, nomor_telepon = ?, alamat = ? WHERE id = ?";
             $statement = $koneksi->prepare($sql);
-            $statement->execute([$nama, $jenis_kelamin, $nomor_telepon, $_SESSION['id']]);
+            $statement->execute([$nama, $jenis_kelamin, $nomor_telepon, $alamat, $_SESSION['id']]);
         }
 
         $target_dir = '../image/';

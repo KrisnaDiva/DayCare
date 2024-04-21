@@ -24,8 +24,6 @@ final class Paket extends AbstractMigration
             ->addColumn('foto', 'string', ['limit' => 255, 'null' => false])
             ->addColumn('usia_minimal', 'integer', ['null' => false])
             ->addColumn('usia_maksimal', 'integer', ['null' => false])
-            ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP'])
             ->create();
     }
 }

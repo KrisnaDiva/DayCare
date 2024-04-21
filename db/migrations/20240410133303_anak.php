@@ -24,8 +24,6 @@ final class Anak extends AbstractMigration
             ->addColumn('tanggal_lahir', 'date', ['null' => false])
             ->addColumn('jenis_kelamin', 'enum', ['values' => ['Laki-Laki', 'Perempuan'], 'null' => false])
             ->addColumn('user_id', 'integer', ['limit' => 11, 'signed' => false, 'null' => false])
-            ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP'])
             ->create();
     }
 }

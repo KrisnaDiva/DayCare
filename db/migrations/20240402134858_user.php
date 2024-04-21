@@ -32,13 +32,12 @@ final class User extends AbstractMigration
         $users = $this->table('users');
         $users->addColumn('nama', 'string', ['limit' => 64, 'null' => false])
             ->addColumn('email', 'string', ['limit' => 64, 'null' => false])
+            ->addColumn('alamat', 'string', ['limit' => 255])
             ->addColumn('password', 'string', ['limit' => 255, 'null' => false])
             ->addColumn('nomor_telepon', 'string', ['limit' => 64, 'null' => false])
             ->addColumn('jenis_kelamin', 'enum', ['values' => ['Laki-Laki', 'Perempuan'], 'null' => false])
             ->addColumn('foto_profil', 'string', ['limit' => 255])
             ->addColumn('role', 'enum', ['values' => ['owner', 'admin', 'user'], 'null' => false])
-            ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP'])
             ->addIndex(['email'], ['unique' => true])
             ->create();
     }

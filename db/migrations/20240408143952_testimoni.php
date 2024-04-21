@@ -23,8 +23,6 @@ final class Testimoni extends AbstractMigration
         $testimoni->addColumn('tingkat_kepuasan', 'enum', ['values' => ['Puas', 'Biasa Saja', 'Tidak Puas'], 'null' => false])
             ->addColumn('pesan', 'string', ['limit' => 255, 'null' => false])
             ->addColumn('user_id', 'integer', ['limit' => 11, 'signed' => false, 'null' => false])
-            ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP'])
             ->create();
     }
 }
