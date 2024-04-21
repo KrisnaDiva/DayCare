@@ -90,7 +90,7 @@ $total_pages = ceil($total_rows / $limit);
                                                                                            href="?page=<?= $page - 1 ?>"><</a>
                             </li>
                             <?php
-                            $num_links_to_display = 2; // Jumlah halaman yang ditampilkan di sekitar halaman saat ini
+                            $num_links_to_display = 2;
                             $start = max(1, $page - $num_links_to_display);
                             $end = min($total_pages, $page + $num_links_to_display);
                             for ($i = $start; $i <= $end; $i++): ?>

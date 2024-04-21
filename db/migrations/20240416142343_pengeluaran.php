@@ -22,7 +22,7 @@ final class Pengeluaran extends AbstractMigration
         $pengeluaran = $this->table('pengeluaran');
         $pengeluaran->addColumn('total_pengeluaran', 'biginteger', ['null' => false])
             ->addColumn('keterangan', 'string', ['limit' => 255, 'null' => false])
-            ->addColumn('status', 'enum', ['values' => ['ditolak', 'pending' ,'diterima'], 'null' => false])
+            ->addColumn('status', 'enum', ['values' => ['ditolak', 'pending', 'diterima'], 'null' => false])
             ->addColumn('tanggal', 'date', ['null' => false])
             ->addColumn('user_id', 'integer', ['null' => false])
             ->addIndex(['tanggal'], ['unique' => true])

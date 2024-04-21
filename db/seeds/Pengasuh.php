@@ -34,7 +34,43 @@ class Pengasuh extends AbstractSeed
                 'foto' => '',
                 'tanggal_lahir' => '1985-01-01',
                 'tanggal_bergabung' => '2022-01-01',
-            )
+            ),
+            array(
+                'nama' => 'Rama',
+                'email' => 'rama@example.com',
+                'nomor_telepon' => '089658444102',
+                'jenis_kelamin' => 'Laki-Laki',
+                'foto' => '',
+                'tanggal_lahir' => '1985-01-01',
+                'tanggal_bergabung' => '2022-01-01',
+            ),
+            array(
+                'nama' => 'Rina',
+                'email' => 'Rina@example.com',
+                'nomor_telepon' => '089658444102',
+                'jenis_kelamin' => 'Perempuan',
+                'foto' => '',
+                'tanggal_lahir' => '1985-01-01',
+                'tanggal_bergabung' => '2022-01-01',
+            ),
+            array(
+                'nama' => 'Bima',
+                'email' => 'Bima@example.com',
+                'nomor_telepon' => '089658444102',
+                'jenis_kelamin' => 'Laki-Laki',
+                'foto' => '',
+                'tanggal_lahir' => '1985-01-01',
+                'tanggal_bergabung' => '2022-01-01',
+            ),
+            array(
+                'nama' => 'Diki',
+                'email' => 'Diki@example.com',
+                'nomor_telepon' => '089658444102',
+                'jenis_kelamin' => 'Perempuan',
+                'foto' => '',
+                'tanggal_lahir' => '1985-01-01',
+                'tanggal_bergabung' => '2022-01-01',
+            ),
         );
 
         $pengasuh = $this->table('pengasuh');

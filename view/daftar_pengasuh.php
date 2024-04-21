@@ -20,6 +20,8 @@ $pengasuh = $statement->fetchAll();
                              alt="user-img" width="90" class="img-circle border">
                     </div>
                     <b class="mt-2"><?= htmlspecialchars($value['nama']) ?></b>
+                    <span class="text-muted"><?= htmlspecialchars($value['email']) ?></span>
+
                 </div>
             </div>
         <?php endforeach; ?>

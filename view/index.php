@@ -39,13 +39,13 @@ if ($user['role'] == 'user') {
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <style>
 .mySlides {
-    width: 600px;
-    height: 600px; /* Anda bisa mengubah ini sesuai kebutuhan */
+    width: 700px;
+    height: 600px;
     object-fit: contain;
 }
 </style>
-
-<div class="w3-content w3-display-container" style="max-width: 600px" >
+<h1 class="w3-center">Selamat Datang <?= $user['nama'] ?></h1>
+<div class="w3-content w3-display-container" style="max-width: 700px" >
     <img class="mySlides" src="../assets/img/1.jpeg">
     <img class="mySlides" src="../assets/img/2.jpeg">
     <img class="mySlides" src="../assets/img/3.jpeg">
