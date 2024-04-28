@@ -25,6 +25,7 @@ class Pengasuh extends AbstractSeed
                 'foto' => '',
                 'tanggal_lahir' => '1980-01-01',
                 'tanggal_bergabung' => '2022-01-01',
+                'pendidikan_terakhir' => 'S1'
             ),
             array(
                 'nama' => 'Riri',
@@ -34,6 +35,7 @@ class Pengasuh extends AbstractSeed
                 'foto' => '',
                 'tanggal_lahir' => '1985-01-01',
                 'tanggal_bergabung' => '2022-01-01',
+                'pendidikan_terakhir' => 'S1'
             ),
             array(
                 'nama' => 'Rama',
@@ -43,6 +45,7 @@ class Pengasuh extends AbstractSeed
                 'foto' => '',
                 'tanggal_lahir' => '1985-01-01',
                 'tanggal_bergabung' => '2022-01-01',
+                'pendidikan_terakhir' => 'D3'
             ),
             array(
                 'nama' => 'Rina',
@@ -52,6 +55,7 @@ class Pengasuh extends AbstractSeed
                 'foto' => '',
                 'tanggal_lahir' => '1985-01-01',
                 'tanggal_bergabung' => '2022-01-01',
+                'pendidikan_terakhir' => 'SMA'
             ),
             array(
                 'nama' => 'Bima',
@@ -61,6 +65,7 @@ class Pengasuh extends AbstractSeed
                 'foto' => '',
                 'tanggal_lahir' => '1985-01-01',
                 'tanggal_bergabung' => '2022-01-01',
+                'pendidikan_terakhir' => 'SMA'
             ),
             array(
                 'nama' => 'Diki',
@@ -70,6 +75,7 @@ class Pengasuh extends AbstractSeed
                 'foto' => '',
                 'tanggal_lahir' => '1985-01-01',
                 'tanggal_bergabung' => '2022-01-01',
+                'pendidikan_terakhir' => 'SMA'
             ),
         );
 

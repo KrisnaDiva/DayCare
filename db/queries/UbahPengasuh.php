@@ -17,6 +17,7 @@ try {
         'jenis_kelamin' => $_POST['jenis_kelamin'],
         'tanggal_lahir' => $_POST['tanggal_lahir'],
         'tanggal_bergabung' => $_POST['tanggal_bergabung'],
+        'pendidikan_terakhir' => $_POST['pendidikan_terakhir'],
         'foto' => $pengasuhLama['foto'],
     ];
     $target_dir = '../image/';

@@ -10,6 +10,7 @@ try {
         'nomor_telepon' => $_POST['nomor_telepon'],
         'jenis_kelamin' => $_POST['jenis_kelamin'],
         'tanggal_lahir' => $_POST['tanggal_lahir'],
+        'pendidikan_terakhir' => $_POST['pendidikan_terakhir'],
         'tanggal_bergabung' => $_POST['tanggal_bergabung'],
     ];
     $target_dir = '../image/';

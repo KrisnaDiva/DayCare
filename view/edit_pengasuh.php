@@ -53,6 +53,22 @@ $tanggal_bergabung = htmlspecialchars($pengasuh['tanggal_bergabung']);
                             </select>
                         </div>
                         <div class="form-group">
+    <label for="pendidikan_terakhir">Pendidikan Terakhir</label>
+    <select class="form-control" name="pendidikan_terakhir" required>
+        <option selected value="">Pilih Pendidikan Terakhir</option>
+        <option value="SD" <?= $pengasuh['pendidikan_terakhir'] == 'SD' ? 'selected' : ''; ?>>SD</option>
+        <option value="SMP" <?= $pengasuh['pendidikan_terakhir'] == 'SMP' ? 'selected' : ''; ?>>SMP</option>
+        <option value="SMA" <?= $pengasuh['pendidikan_terakhir'] == 'SMA' ? 'selected' : ''; ?>>SMA</option>
+        <option value="D1" <?= $pengasuh['pendidikan_terakhir'] == 'D1' ? 'selected' : ''; ?>>D1</option>
+        <option value="D2" <?= $pengasuh['pendidikan_terakhir'] == 'D2' ? 'selected' : ''; ?>>D2</option>
+        <option value="D3" <?= $pengasuh['pendidikan_terakhir'] == 'D3' ? 'selected' : ''; ?>>D3</option>
+        <option value="D4" <?= $pengasuh['pendidikan_terakhir'] == 'D4' ? 'selected' : ''; ?>>D4</option>
+        <option value="S1" <?= $pengasuh['pendidikan_terakhir'] == 'S1' ? 'selected' : ''; ?>>S1</option>
+        <option value="S2" <?= $pengasuh['pendidikan_terakhir'] == 'S2' ? 'selected' : ''; ?>>S2</option>
+        <option value="S3" <?= $pengasuh['pendidikan_terakhir'] == 'S3' ? 'selected' : ''; ?>>S3</option>
+    </select>
+</div>
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" value="<?= $email ?>" placeholder="Masukkan email" required>
                         </div>

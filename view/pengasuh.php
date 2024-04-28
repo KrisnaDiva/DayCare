@@ -41,6 +41,7 @@ $total_pages = ceil($total_rows / $limit);
                             <th>Nomor Telepon</th>
                             <th>Tanggal Lahir</th>
                             <th>Tanggal Bergabung</th>
+                            <th>Pendidikan Terakhir</th> <!-- Tambahkan ini -->
                             <th>Aksi</th>
                         </tr>
                         </thead>
@@ -58,6 +59,7 @@ $total_pages = ceil($total_rows / $limit);
                                 <td><?= htmlspecialchars($value['nomor_telepon']); ?></td>
                                 <td><?= htmlspecialchars($value['tanggal_lahir']); ?></td>
                                 <td><?= htmlspecialchars($value['tanggal_bergabung']); ?></td>
+                                <td><?= htmlspecialchars($value['pendidikan_terakhir']); ?></td> <!-- Tambahkan ini -->
                                 <td style="display: inline-block;">
                                     <a href="edit_pengasuh.php?id=<?= $value['id']; ?>" class="btn btn-warning"
                                        style="display: inline-block;"><i class="las la-edit"></i></a>
