@@ -29,7 +29,7 @@ class Pengeluaran extends AbstractSeed
                 'keterangan' => $keterangan,
                 'status' => 'pending',
                 'tanggal' => $tanggal,
-                'user_id' => 102,
+                'user_id' => 12,
             ];
         }
 

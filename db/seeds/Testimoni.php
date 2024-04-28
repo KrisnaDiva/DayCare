@@ -16,21 +16,14 @@ class Testimoni extends AbstractSeed
      */
     public function run(): void
     {
-        for ($i = 1; $i <= 100; $i++) {
+        $tingkatKepuasan = ['Puas', 'Tidak Puas', 'Biasa Saja'];
+
+        for ($i = 1; $i <= 10; $i++) {
             $data = array(
                 array(
-                    'tingkat_kepuasan' => 'Puas',
+                    'tingkat_kepuasan' => $tingkatKepuasan[array_rand($tingkatKepuasan)],
                     'pesan' => 'amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit',
-                    'user_id' => $i++,
-                ),array(
-                    'tingkat_kepuasan' => 'Tidak Puas',
-                    'pesan' => 'amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit',
-                    'user_id' => $i++,
-                ),
-                array(
-                    'tingkat_kepuasan' => 'Biasa Saja',
-                    'pesan' => 'amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit',
-                    'user_id' => $i++,
+                    'user_id' => $i,
                 )
             );
 

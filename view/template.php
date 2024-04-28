@@ -127,10 +127,22 @@ $statement->execute();
                             <p>Pengasuh</p>
                         </a>
                     </li>
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['daftar_anak', 'kehadiran']) ? 'active' : ''; ?>">
+                        <a href="daftar_anak.php">
+                            <i class="las la-child"></i>
+                            <p>Anak</p>
+                        </a>
+                    </li>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['paket', 'jenis_paket', 'tambah_paket', 'tambah_jenis_paket', 'edit_jenis_paket', 'edit_paket']) ? 'active' : ''; ?>">
                         <a href="paket.php">
                             <i class="las la-box"></i>
                             <p>Paket</p>
+                        </a>
+                    </li>
+                    <li class="nav-item <?= basename($_SERVER['PHP_SELF'], '.php') == 'testimoni' ? 'active' : ''; ?>">
+                        <a href="testimoni.php">
+                            <i class="las la-comment"></i>
+                            <p>Testimoni</p>
                         </a>
                     </li>
                     <?php if ($role == 'owner'): ?>
