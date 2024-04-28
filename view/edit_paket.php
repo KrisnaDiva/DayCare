@@ -29,19 +29,22 @@ $usia_maksimal = htmlspecialchars($paket['usia_maksimal']);
                             <?php if ($foto): ?>
                                 <img id="preview" src="../db/image/<?= $foto ?>" alt="Foto" width="100" height="100">
                             <?php endif; ?>
-                            <input id="foto" type="file" class="form-control" name="foto" >
+                            <input id="foto" type="file" class="form-control" name="foto">
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" name="nama" placeholder="Masukkan nama" value="<?= $nama ?>" required>
+                            <input type="text" class="form-control" name="nama" placeholder="Masukkan nama"
+                                   value="<?= $nama ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="usia_minimal">Usia Minimal</label>
-                            <input type="number" class="form-control" name="usia_minimal" placeholder="Masukkan usia minimal" value="<?= $usia_minimal ?>" required>
+                            <input type="number" class="form-control" name="usia_minimal"
+                                   placeholder="Masukkan usia minimal" value="<?= $usia_minimal ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="usia_maksimal">Usia Maksimal</label>
-                            <input type="number" class="form-control" name="usia_maksimal" placeholder="Masukkan maksimal" value="<?= $usia_maksimal ?>" required>
+                            <input type="number" class="form-control" name="usia_maksimal"
+                                   placeholder="Masukkan maksimal" value="<?= $usia_maksimal ?>" required>
                         </div>
 
                     </div>
@@ -53,9 +56,9 @@ $usia_maksimal = htmlspecialchars($paket['usia_maksimal']);
         </div>
     </div>
     <script>
-        document.getElementById('foto').addEventListener('change', function(e) {
+        document.getElementById('foto').addEventListener('change', function (e) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 document.getElementById('preview').src = e.target.result;
             }
             reader.readAsDataURL(this.files[0]);

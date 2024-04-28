@@ -22,11 +22,13 @@ ob_start();
                         </div>
                         <div class="form-group">
                             <label for="usia_minimal">Usia Minimal</label>
-                            <input type="number" class="form-control" name="usia_minimal" placeholder="Masukkan usia minimal" required>
+                            <input type="number" class="form-control" name="usia_minimal"
+                                   placeholder="Masukkan usia minimal" required>
                         </div>
                         <div class="form-group">
                             <label for="usia_maksimal">Usia Maksimal</label>
-                            <input type="number" class="form-control" name="usia_maksimal" placeholder="Masukkan maksimal" required>
+                            <input type="number" class="form-control" name="usia_maksimal"
+                                   placeholder="Masukkan maksimal" required>
                         </div>
 
                     </div>

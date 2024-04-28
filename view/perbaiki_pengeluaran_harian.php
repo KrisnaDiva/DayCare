@@ -26,7 +26,8 @@ $pengeluaran = $statement->fetch();
                         <div class="form-group">
                             <label for="total_pengeluaran">Total Pengeluaran</label>
                             <input type="number" class="form-control" name="total_pengeluaran"
-                                   placeholder="Masukkan Total Pengeluaran" value="<?= $pengeluaran['total_pengeluaran'] ?>" required>
+                                   placeholder="Masukkan Total Pengeluaran"
+                                   value="<?= $pengeluaran['total_pengeluaran'] ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="keterangan">Keterangan</label>

@@ -7,7 +7,7 @@ $sql = "DELETE FROM kehadiran WHERE id = ?";
 $statement = $koneksi->prepare($sql);
 $statement->execute([$id]);
 
-if ($statement->rowCount() > 0){
+if ($statement->rowCount() > 0) {
     echo "<script type='text/javascript'>
             alert('Hapus Kehadiran Berhasil.');
             window.location.href = '../../view/kehadiran.php';

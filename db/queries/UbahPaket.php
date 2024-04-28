@@ -50,7 +50,7 @@ try {
                 window.location.href = '../../view/paket.php';
               </script>";
     }
-}catch (Exception $e) {
+} catch (Exception $e) {
     $koneksi->rollBack();
 
     $errorMessage = $e->getMessage();

@@ -16,7 +16,7 @@ if ($row = $statement->fetch()) {
         $_SESSION["id"] = $row['id'];
         $_SESSION["role"] = $row['role'];
         $_SESSION["login"] = true;
-            header("Location: ../../view/index.php");
+        header("Location: ../../view/index.php");
     } else {
         echo "<script type='text/javascript'>
         alert('Password salah.');

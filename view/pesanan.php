@@ -36,96 +36,107 @@ $total_pages = ceil($total_rows / $limit);
         </li>
     </ul>
     <div class="row justify-content-center">
-
-<?php foreach ($pending as $value): ?>
-    <div class="col-10">
-        <div class="card ">
-
-            <div class="card-body">
-                <div class="row justify-content-between px-5 mb-3">
-                    <small class="text-muted"> <?= date("d-m-Y H:i", strtotime($value['tanggal_transaksi'])) ?></small>
-                    <?php if ($value['status'] == 'belum dibayar'): ?>
-                        <small class="text-muted">Bayar
-                            Sebelum <?= date("d-m-Y H:i", strtotime($value['tanggal_transaksi'] . '+1 day')) ?></small>
-                    <?php endif; ?>
-                </div>
-                <hr>
-                <div class="row text-center mb-3 font-weight-bold">
-                    <div class="col-2">
-                        Nama Paket
-                    </div>
-                    <div class="col-2">
-                        Periode
-                    </div>
-                    <div class="col-2">
-                        Jenis
-                    </div>
-                    <div class="col-2">
-                        Anak
-                    </div>
-                    <div class="col-2">
-                        Harga
-                    </div>
-                    <div class="col-2">
-                        Status
-                    </div>
-                </div>
-                <hr>
-                <div class="row text-center">
-                    <div class="col-2">
-                        <?= htmlspecialchars($value['nama_paket']); ?> (<?= htmlspecialchars($value['usia_paket']); ?>)
-                    </div>
-                    <div class="col-2">
-                        <?= $value['periode_paket']; ?>
-                    </div>
-                    <div class="col-2">
-                        <?= $value['jenis_paket']; ?>
-                    </div>
-                    <div class="col-2">
-                        <?= $value['nama_anak']; ?>
-                    </div>
-                    <div class="col-2">
-                        <?= 'Rp' . number_format($value['total_bayar'], 0, ',', '.'); ?>                    </div>
-                    <div class="col-2">
-                        <?= $value['status']; ?>
-                    </div>
-                </div>
-                <hr>
-                <div class="row justify-content-end px-5">
-                    <?php if ($value['status'] == 'belum dibayar'): ?>
-                        <a href="javascript:if(confirm('Apakah anda yakin mau membatalkan pesanan?')) window.location.href='../db/queries/BayarDanBatal.php?id=<?= $value['id'] ?>&status=dibatalkan';"
-                           class="btn btn-danger">Batal</a>
-                        <button type="submit" id="pay-button-<?= $value['id'] ?>" class="btn btn-success ml-3">Bayar
-                        </button>
-                    <?php elseif ($value['status'] == 'dibayar'): ?>
-                        <a href="../db/queries/CetakTransaksi.php?id=<?= $value['id'] ?>" class="btn btn-primary ml-3">Cetak
-                            Detail
-                            Transaksi</a>
-                    <?php endif; ?>
+        <?php if ($status == 'belum dibayar'): ?>
+            <div class="col-10">
+                <div class="alert alert-warning" role="alert">
+                    Perhatian: Anda tidak dapat mengajukan pengembalian untuk pesanan yang sudah dibayar.
                 </div>
             </div>
-        </div>
-    </div>
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js"
-            data-client-key="<?php echo 'SB-Mid-client-DydJ4fTsGZX-Vzzk' ?>"></script>
-    <script type="text/javascript">
-        document.getElementById('pay-button-<?= $value['id'] ?>').onclick = function () {
-            snap.pay('<?php echo $value['snap_token']?>', {
-                onSuccess: function (result) {
-                    var xmlhttp = new XMLHttpRequest();
+        <?php endif; ?>
 
-                    xmlhttp.open("GET", "../db/queries/BayarDanBatal.php?id=<?= $value['id'] ?>&status=dibayar");
-                    xmlhttp.send();
-                    alert('Transaksi Berhasil');
-                    window.location.href = 'pesanan.php';
-                }
-            });
-        };
-    </script>
-<?php endforeach; ?>
+        <?php foreach ($pending as $value): ?>
+            <div class="col-10">
+                <div class="card ">
+
+                    <div class="card-body">
+                        <div class="row justify-content-between px-5 mb-3">
+                            <small class="text-muted"> <?= date("d-m-Y H:i", strtotime($value['tanggal_transaksi'])) ?></small>
+                            <?php if ($value['status'] == 'belum dibayar'): ?>
+                                <small class="text-muted">Bayar
+                                    Sebelum <?= date("d-m-Y H:i", strtotime($value['tanggal_transaksi'] . '+1 day')) ?></small>
+                            <?php endif; ?>
+                        </div>
+                        <hr>
+                        <div class="row text-center mb-3 font-weight-bold">
+                            <div class="col-2">
+                                Nama Paket
+                            </div>
+                            <div class="col-2">
+                                Periode
+                            </div>
+                            <div class="col-2">
+                                Jenis
+                            </div>
+                            <div class="col-2">
+                                Anak
+                            </div>
+                            <div class="col-2">
+                                Harga
+                            </div>
+                            <div class="col-2">
+                                Status
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row text-center">
+                            <div class="col-2">
+                                <?= htmlspecialchars($value['nama_paket']); ?>
+                                (<?= htmlspecialchars($value['usia_paket']); ?>)
+                            </div>
+                            <div class="col-2">
+                                <?= $value['periode_paket']; ?>
+                            </div>
+                            <div class="col-2">
+                                <?= $value['jenis_paket']; ?>
+                            </div>
+                            <div class="col-2">
+                                <?= $value['nama_anak']; ?>
+                            </div>
+                            <div class="col-2">
+                                <?= 'Rp' . number_format($value['total_bayar'], 0, ',', '.'); ?>                    </div>
+                            <div class="col-2">
+                                <?= $value['status']; ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-end px-5">
+                            <?php if ($value['status'] == 'belum dibayar'): ?>
+                                <a href="javascript:if(confirm('Apakah anda yakin mau membatalkan pesanan?')) window.location.href='../db/queries/BayarDanBatal.php?id=<?= $value['id'] ?>&status=dibatalkan';"
+                                   class="btn btn-danger">Batal</a>
+                                <button type="submit" id="pay-button-<?= $value['id'] ?>" class="btn btn-success ml-3">
+                                    Bayar
+                                </button>
+                            <?php elseif ($value['status'] == 'dibayar'): ?>
+                                <a target="_blank" href="../db/queries/CetakTransaksi.php?id=<?= $value['id'] ?>"
+                                   class="btn btn-primary ml-3">Cetak
+                                    Detail
+                                    Transaksi</a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://app.sandbox.midtrans.com/snap/snap.js"
+                    data-client-key="<?php echo 'SB-Mid-client-DydJ4fTsGZX-Vzzk' ?>"></script>
+            <script type="text/javascript">
+                document.getElementById('pay-button-<?= $value['id'] ?>').onclick = function () {
+                    snap.pay('<?php echo $value['snap_token']?>', {
+                        onSuccess: function (result) {
+                            var xmlhttp = new XMLHttpRequest();
+
+                            xmlhttp.open("GET", "../db/queries/BayarDanBatal.php?id=<?= $value['id'] ?>&status=dibayar");
+                            xmlhttp.send();
+                            alert('Transaksi Berhasil');
+                            window.location.href = 'pesanan.php';
+                        }
+                    });
+                };
+            </script>
+        <?php endforeach; ?>
     </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
+
             <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
                 <a class="page-link" href="pesanan.php?status=<?= $status ?>&page=1">First</a>
             </li>

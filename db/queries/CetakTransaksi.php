@@ -29,10 +29,10 @@ $html = "
         text-align: left;
     }
      .small-column {
-        width: 20%; 
+        width: 25%; 
     }
     </style>
-<h1>Detail Transaksi</h1>
+<h2>Detail Transaksi</h2>
 
 <table border='0'>
     <tr>
@@ -40,7 +40,6 @@ $html = "
 <td style='text-align: right;'>Tanggal Transaksi : {$tanggal_transaksi}</td>
 </tr>    
 </table>
-<br>
 <h4>Rincian Pesanan</h4>
 <table border='0'>
     <tbody>
@@ -75,9 +74,10 @@ $html = "
         </tr>
     </tbody>
 </table>
+<br>
+<b>*note : Harap tunjukkan bukti pembayaran sebelum menitipkan anak Anda.</b>
 ";
-$mpdf = new \Mpdf\Mpdf();
-
+$mpdf = new \Mpdf\Mpdf(['format' => 'A5-L']);
 $mpdf->WriteHTML($html);
 
 $mpdf->Output('Detail Transaksi.pdf', 'I');

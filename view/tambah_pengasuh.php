@@ -32,21 +32,21 @@ ob_start();
                             </select>
                         </div>
                         <div class="form-group">
-    <label for="pendidikan_terakhir">Pendidikan Terakhir</label>
-    <select class="form-control" name="pendidikan_terakhir" required>
-        <option selected value="">Pilih Pendidikan Terakhir</option>
-        <option value="SD">SD</option>
-        <option value="SMP">SMP</option>
-        <option value="SMA">SMA</option>
-        <option value="D1">D1</option>
-        <option value="D2">D2</option>
-        <option value="D3">D3</option>
-        <option value="D4">D4</option>
-        <option value="S1">S1</option>
-        <option value="S2">S2</option>
-        <option value="S3">S3</option>
-    </select>
-</div>
+                            <label for="pendidikan_terakhir">Pendidikan Terakhir</label>
+                            <select class="form-control" name="pendidikan_terakhir" required>
+                                <option selected value="">Pilih Pendidikan Terakhir</option>
+                                <option value="SD">SD</option>
+                                <option value="SMP">SMP</option>
+                                <option value="SMA">SMA</option>
+                                <option value="D1">D1</option>
+                                <option value="D2">D2</option>
+                                <option value="D3">D3</option>
+                                <option value="D4">D4</option>
+                                <option value="S1">S1</option>
+                                <option value="S2">S2</option>
+                                <option value="S3">S3</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" placeholder="Masukkan email" required>

@@ -26,7 +26,8 @@ $tanggal_lahir = htmlspecialchars($anak['tanggal_lahir']);
                     <div class="card-body">
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" name="nama" value="<?= $nama ?>" placeholder="Masukkan nama" required>
+                            <input type="text" class="form-control" name="nama" value="<?= $nama ?>"
+                                   placeholder="Masukkan nama" required>
                         </div>
                         <div class="form-group">
                             <label for="jenis_kelamin">Jenis Kelamin</label>
@@ -43,7 +44,8 @@ $tanggal_lahir = htmlspecialchars($anak['tanggal_lahir']);
                         </div>
                         <div class="form-group">
                             <label for="tanggal_lahir">Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="tanggal_lahir" value="<?= $tanggal_lahir ?>" required>
+                            <input type="date" class="form-control" name="tanggal_lahir" value="<?= $tanggal_lahir ?>"
+                                   required>
                         </div>
                     </div>
                     <div class="card-action">

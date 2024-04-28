@@ -15,7 +15,7 @@ if ($id) {
     $statement->bindParam(':jam_masuk', $jam_masuk, PDO::PARAM_STR);
     $statement->execute();
 
-    if ($statement->rowCount() > 0){
+    if ($statement->rowCount() > 0) {
         echo "<script type='text/javascript'>
             alert('Check In berhasil.');
             window.location.href = '../../view/daftar_anak.php';

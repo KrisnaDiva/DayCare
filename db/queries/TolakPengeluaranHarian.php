@@ -11,7 +11,7 @@ if ($statement->rowCount() > 0) {
                 alert('Pengeluaran berhasil ditolak.');
                 window.location.href = '../../view/laporan_pengeluaran.php?status=pending';
               </script>";
-}else{
+} else {
     echo "<script type='text/javascript'>
         alert('Pengeluaran gagal ditolak');
         window.location.href = '../../view/laporan_pengeluaran.php?status=pending';

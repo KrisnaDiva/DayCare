@@ -53,7 +53,8 @@ $paket = $statement->fetchAll();
                         </div>
                         <div class="form-group">
                             <label for="harga">Harga</label>
-                            <input type="number" class="form-control" name="harga" placeholder="Masukkan Harga" required>
+                            <input type="number" class="form-control" name="harga" placeholder="Masukkan Harga"
+                                   required>
                         </div>
 
                     </div>

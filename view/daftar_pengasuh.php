@@ -19,7 +19,8 @@ $pengasuh = $statement->fetchAll();
                         <img src="<?= empty($value['foto']) ? '../assets/img/profile.png' : '../db/image/' . $value['foto']; ?>"
                              alt="user-img" width="90" class="img-circle border">
                     </div>
-                    <b class="mt-2"><?= htmlspecialchars($value['nama']) ?></b>
+                    <b class="mt-2"><?= htmlspecialchars($value['nama']) ?><small>
+                            - <?= htmlspecialchars($value['pendidikan_terakhir']) ?></small></b>
                     <span class="text-muted"><?= htmlspecialchars($value['email']) ?></span>
 
                 </div>

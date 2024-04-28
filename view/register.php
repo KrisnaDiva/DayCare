@@ -27,23 +27,23 @@ guest();
                 <form action="../db/queries/Register.php" method="POST">
                     <div class="mb-3">
                         <label class="mb-2 text-muted" for="nama">Nama</label>
-                        <input id="nama" type="text" class="form-control" name="nama"  required autofocus>
+                        <input id="nama" type="text" class="form-control" name="nama" required autofocus>
                     </div>
 
                     <div class="mb-3">
                         <label class="mb-2 text-muted" for="email">E-Mail</label>
-                        <input id="email" type="email" class="form-control" name="email"  required>
+                        <input id="email" type="email" class="form-control" name="email" required>
 
                     </div>
 
                     <div class="mb-3">
                         <label class="mb-2 text-muted" for="nomor_telepon">Nomor Telepon</label>
-                        <input id="nomor_telepon" type="number" class="form-control" name="nomor_telepon"  required>
+                        <input id="nomor_telepon" type="number" class="form-control" name="nomor_telepon" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="mb-2 text-muted" for="alamat">Alamat</label>
-                        <textarea id="alamat" class="form-control" name="alamat"  required></textarea>
+                        <textarea id="alamat" class="form-control" name="alamat" required></textarea>
                     </div>
 
                     <div class="mb-3">
