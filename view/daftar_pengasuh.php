@@ -4,7 +4,7 @@ ob_start();
 require_once __DIR__ . '/../db/koneksi.php';
 $koneksi = getKoneksi();
 
-$sql = "SELECT * FROM pengasuh";
+$sql = "SELECT * FROM karyawan WHERE posisi = 'Pengasuh'";
 $statement = $koneksi->prepare($sql);
 $statement->execute();
 $pengasuh = $statement->fetchAll();

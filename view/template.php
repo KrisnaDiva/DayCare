@@ -114,19 +114,13 @@ $statement->execute();
                         </a>
                     </li>
                     <?php if ($role == 'owner'): ?>
-                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['admin', 'tambah_admin']) ? 'active' : ''; ?>">
-                            <a href="admin.php">
-                                <i class="las la-user-cog"></i>
-                                <p>Admin</p>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengasuh', 'tambah_pengasuh', 'edit_pengasuh']) ? 'active' : ''; ?>">
-                        <a href="pengasuh.php">
-                            <i class="las la-chalkboard-teacher"></i>
-                            <p>Pengasuh</p>
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['karyawan', 'tambah_karyawan', 'edit_karyawan']) ? 'active' : ''; ?>">
+                        <a href="karyawan.php">
+                            <i class="las la-user"></i>
+                            <p>Karyawan</p>
                         </a>
                     </li>
+                    <?php endif; ?>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['daftar_anak', 'kehadiran']) ? 'active' : ''; ?>">
                         <a href="daftar_anak.php">
                             <i class="las la-child"></i>

@@ -1,5 +1,5 @@
 <?php
-$title = "Pengasuh";
+$title = "Karyawan";
 ob_start();
 require_once __DIR__ . '/../db/koneksi.php';
 $koneksi = getKoneksi();
@@ -8,14 +8,14 @@ $limit = 10;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
-$sql = "SELECT * FROM pengasuh LIMIT :limit OFFSET :offset";
+$sql = "SELECT * FROM karyawan LIMIT :limit OFFSET :offset";
 $statement = $koneksi->prepare($sql);
 $statement->bindParam(':limit', $limit, PDO::PARAM_INT);
 $statement->bindParam(':offset', $offset, PDO::PARAM_INT);
 $statement->execute();
-$pengasuh = $statement->fetchAll();
+$karyawan = $statement->fetchAll();
 
-$sql = "SELECT COUNT(*) FROM pengasuh";
+$sql = "SELECT COUNT(*) FROM karyawan";
 $statement = $koneksi->prepare($sql);
 $statement->execute();
 $total_rows = $statement->fetchColumn();
@@ -25,17 +25,18 @@ $total_pages = ceil($total_rows / $limit);
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Data Pengasuh</div>
+                    <div class="card-title">Data Karyawan</div>
                 </div>
                 <div class="card-body text-right">
-                    <a href="tambah_pengasuh.php" class="btn btn-primary mb-3 mr-4"><i class="las la-plus"></i> Pengasuh</a>
+                    <a href="tambah_karyawan.php" class="btn btn-primary mb-3 mr-4"><i class="las la-plus"></i> Karyawan</a>
 
                     <table class="table text-center">
                         <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Foto</th>
+                            <th>Posisi</th>
+                            <th>Gaji</th>
                             <th>Jenis Kelamin</th>
                             <th>Email</th>
                             <th>Nomor Telepon</th>
@@ -46,14 +47,12 @@ $total_pages = ceil($total_rows / $limit);
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($pengasuh as $key => $value): ?>
+                        <?php foreach ($karyawan as $key => $value): ?>
                             <tr>
                                 <td><?= $key + 1 ?></td>
                                 <td><?= htmlspecialchars($value['nama']); ?></td>
-                                <td>
-                                    <img src="../db/image/<?= htmlspecialchars($value['foto']); ?>" alt="Foto Profil"
-                                         width="50" height="50">
-                                </td>
+                                <td><?= htmlspecialchars($value['posisi']); ?></td>
+                                <td><?= htmlspecialchars($value['gaji']); ?></td>
                                 <td><?= htmlspecialchars($value['jenis_kelamin']); ?></td>
                                 <td><?= htmlspecialchars($value['email']); ?></td>
                                 <td><?= htmlspecialchars($value['nomor_telepon']); ?></td>
@@ -61,10 +60,10 @@ $total_pages = ceil($total_rows / $limit);
                                 <td><?= htmlspecialchars($value['tanggal_bergabung']); ?></td>
                                 <td><?= htmlspecialchars($value['pendidikan_terakhir']); ?></td> <!-- Tambahkan ini -->
                                 <td style="display: inline-block;">
-                                    <a href="edit_pengasuh.php?id=<?= $value['id']; ?>" class="btn btn-warning"
+                                    <a href="edit_karyawan.php?id=<?= $value['id']; ?>" class="btn btn-warning"
                                        style="display: inline-block;"><i class="las la-edit"></i></a>
-                                    <form method="POST" action="../db/queries/HapusPengasuh.php"
-                                          onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengasuh ini?');"
+                                    <form method="POST" action="../db/queries/HapusKaryawan.php"
+                                          onsubmit="return confirm('Apakah Anda yakin ingin menghapus karyawan ini?');"
                                           style="display: inline-block;">
                                         <input type="hidden" name="id" value="<?= $value['id']; ?>">
                                         <button type="submit" class="btn btn-danger"><i class="las la-trash"></i>
@@ -80,7 +79,7 @@ $total_pages = ceil($total_rows / $limit);
                 <div class="card-footer">
                     <?php
                     $entries_start = $offset + 1;
-                    $entries_end = $offset + count($pengasuh);
+                    $entries_end = $offset + count($karyawan);
                     $total_entries = $total_rows;
 
                     echo "Menampilkan {$entries_start} sampai {$entries_end} dari {$total_entries} data"; ?>
