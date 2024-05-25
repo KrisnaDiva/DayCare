@@ -72,7 +72,7 @@ $total_pages = ceil($total_rows / $limit);
                 </div>
                 <div class="card-body">
                     <div class="card-options mb-3">
-                        <form method="GET" onsubmit="this.page.value = 1" target="_blank">
+                        <form method="GET" onsubmit="this.page.value = 1">
                             <div class="row">
                                 <div class="col-3">
                                     <input type="hidden" name="page" value="<?= $page ?>">

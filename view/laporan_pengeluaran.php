@@ -68,7 +68,7 @@ $total_pages = ceil($total_rows / $limit);
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Data Pengeluaran</div>
+                    <div class="card-title">Data Pengeluaran Harian</div>
                 </div>
                 <div class="card-body">
                     <div class="card-options mb-3">
@@ -105,7 +105,7 @@ $total_pages = ceil($total_rows / $limit);
                                 <div class="col-3 d-flex align-items-end ">
                                     <button type="submit" class="btn btn-primary">Filter</button>
                                     <button type="submit" formaction="../db/queries/CetakSemuaPengeluaran.php"
-                                            class="btn btn-secondary ml-2">Cetak Pengeluaran
+                                            class="btn btn-secondary ml-2">Cetak Pengeluaran Harian
                                     </button>
                                 </div>
                             </div>

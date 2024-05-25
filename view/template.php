@@ -146,11 +146,17 @@ $statement->execute();
                                 <p>Transaksi</p>
                             </a>
                         </li>
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['hutang_piutang','tambah_hutang_piutang']) ? 'active' : ''; ?>">
+                            <a href="hutang_piutang.php">
+                                <i class="las la-file-invoice-dollar"></i>
+                                <p>Hutang Piutang</p>
+                            </a>
+                        </li>
                     <?php endif; ?>
-                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengeluaran', 'pengeluaran_harian', 'laporan_pengeluaran']) ? 'active' : ''; ?>">
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengeluaran', 'pengeluaran_harian', 'laporan_pengeluaran', 'detail_pengeluaran']) ? 'active' : ''; ?>">
                         <a href="<?= $role == 'owner' ? 'laporan_pengeluaran.php' : 'pengeluaran.php'; ?>">
                             <i class="las la-money-bill-wave-alt"></i>
-                            <p>Pengeluaran</p>
+                            <p>Pengeluaran Harian</p>
                         </a>
                     </li>
                 <?php endif; ?>

@@ -29,6 +29,9 @@ if ($tanggal_awal && $tanggal_akhir) {
 }
 $statement->execute();
 $transaksi = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+$totalBayar = 0; // Variabel untuk total transaksi
+
 $html = "
 <style>
     table {
@@ -40,10 +43,11 @@ $html = "
         padding: 10px;
         text-align: left;
     }
-    </style>
+</style>
 <h1>Laporan Transaksi</h1>
-
+<p>Tanggal Percetakan: " . date("d-m-Y") . "</p>
 ";
+
 $html .= "<table border='1'>
     <thead>
         <tr>
@@ -76,9 +80,15 @@ foreach ($transaksi as $trans) {
         <td>Rp" . number_format($trans['total_bayar'], 0, ',', '.') . "</td>
         <td>" . date("d-m-Y", strtotime($trans['tanggal_transaksi'])) . "</td>
     </tr>";
+
+    $totalBayar += $trans['total_bayar']; // Menambahkan total transaksi
 }
 
 $html .= "</tbody></table>";
+
+// Menampilkan total transaksi
+$html .= "<h3>Total Transaksi: Rp" . number_format($totalBayar, 0, ',', '.') . "</h3>";
+
 $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
 
 $mpdf->WriteHTML($html);
