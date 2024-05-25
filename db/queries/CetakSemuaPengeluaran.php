@@ -40,14 +40,25 @@ $html = "
         padding: 10px;
         text-align: left;
     }
-    </style>
-<h1>Laporan Pengeluaran</h1>
+
+    .tanggal-pencetakan {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+</style>
+<h1>Laporan Pengeluaran Harian</h1>
+
+<div class='tanggal-pencetakan'>Tanggal Pencetakan: " . date("d-m-Y") . "</div>
+
 
 ";
 $html .= "<table border='1'>
     <thead>
         <tr>
+              <th>No</th>
               <th>Total Pengeluaran</th>
+              <th>Detail Pengeluaran</th>
               <th>Keterangan</th>
               <th>Tanggal</th>
               <th>Status</th>
@@ -56,21 +67,46 @@ $html .= "<table border='1'>
     </thead>
     <tbody>";
 
+$totalHarga = 0; // Variabel untuk total harga
+$no = 1; // Variabel untuk nomor
 foreach ($pengeluaran as $peng) {
+    // Query untuk mendapatkan detail_pengeluaran
+    $sql = "SELECT * FROM detail_pengeluaran WHERE pengeluaran_id = ?";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->execute([$peng['id']]);
+    $detail_pengeluaran = $stmt->fetchAll();
+
+    // Menggabungkan semua detail_pengeluaran menjadi string
+    $detail_pengeluaran_str = "";
+    foreach ($detail_pengeluaran as $detail) {
+        $detail_pengeluaran_str .= $detail['jenis_pengeluaran'] . ": " . "Rp" . number_format($detail['pengeluaran'], 0, ',', '.') . ", ";
+    }
+    $detail_pengeluaran_str = rtrim($detail_pengeluaran_str, ", "); // Menghapus koma dan spasi di akhir string
+
     $sql = "SELECT nama FROM users WHERE id = ?";
     $statement = $koneksi->prepare($sql);
     $statement->execute([$peng['user_id']]);
     $admin = $statement->fetch();
+    $formatted_pengeluaran = "Rp" . number_format($peng['total_pengeluaran'], 0, ',', '.');
     $html .= "<tr>
-        <td>{$peng['total_pengeluaran']}</td>
+        <td>{$no}</td>
+        <td>{$formatted_pengeluaran}</td>
+        <td>{$detail_pengeluaran_str}</td>
         <td>{$peng['keterangan']}</td>
         <td>{$peng['tanggal']}</td>
         <td>{$peng['status']}</td>
         <td>{$admin['nama']}</td>
     </tr>";
+    $no++; // Menambahkan 1 ke nomor
+    $totalHarga += $peng['total_pengeluaran']; // Menambahkan pengeluaran ke total harga
 }
 
 $html .= "</tbody></table>";
+
+// Menampilkan total harga di luar tabel
+$html .= "<h3>Total Harga: Rp" . number_format($totalHarga, 0, ',', '.') . "</h3>";
+
+
 $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
 
 $mpdf->WriteHTML($html);

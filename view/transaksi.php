@@ -145,7 +145,7 @@ $total_pages = ceil($total_rows / $limit);
                                 <td><?= htmlspecialchars($pembeli['nama']) ?></td>
                                 <td><?= htmlspecialchars($value['nama_anak']); ?></td>
                                 <td><?= htmlspecialchars($value['status']); ?></td>
-                                <td><?= htmlspecialchars($value['total_bayar']); ?></td>
+                                <td>Rp<?= number_format($value['total_bayar'], 0, ',', '.') ?></td>
                                 <td><?= htmlspecialchars($value['tanggal_transaksi']); ?></td>
                             </tr>
                         <?php endforeach; ?>

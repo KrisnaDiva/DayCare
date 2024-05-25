@@ -72,7 +72,7 @@ $total_pages = ceil($total_rows / $limit);
                 </div>
                 <div class="card-body">
                     <div class="card-options mb-3">
-                        <form method="GET" onsubmit="this.page.value = 1" target="_blank">
+                        <form method="GET" onsubmit="this.page.value = 1">
                             <div class="row">
                                 <div class="col-3">
                                     <input type="hidden" name="page" value="<?= $page ?>">
@@ -133,19 +133,20 @@ $total_pages = ceil($total_rows / $limit);
                             ?>
                             <tr>
                                 <td><?= $key + 1 ?></td>
-                                <td><?= htmlspecialchars($value['total_pengeluaran']); ?></td>
+                                <td>Rp<?= number_format($value['total_pengeluaran'], 0, ',', '.') ?></td>
                                 <td><?= htmlspecialchars($value['keterangan']); ?></td>
                                 <td><?= htmlspecialchars($value['tanggal']); ?></td>
                                 <td><?= htmlspecialchars($value['status']); ?></td>
                                 <td><?= htmlspecialchars($admin['nama']) ?></td>
-                                <?php if ($value['status'] == 'pending'): ?>
-                                    <td>
+                                <td>
+                                    <a href="detail_pengeluaran.php?id=<?= $value['id'] ?>" class="btn btn-primary"><i class="las la-eye"></i></a>
+                                    <?php if ($value['status'] == 'pending'): ?>
                                         <a href="../db/queries/TerimaPengeluaranHarian.php?id=<?= $value['id'] ?>"
                                            class="btn btn-success"><i class="las la-check"></i></a>
                                         <a href="../db/queries/TolakPengeluaranHarian.php?id=<?= $value['id'] ?>"
                                            class="btn btn-danger"><i class="las la-times"></i></a>
-                                    </td>
-                                <?php endif; ?>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
