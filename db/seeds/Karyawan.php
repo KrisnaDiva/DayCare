@@ -29,8 +29,8 @@ class Karyawan extends AbstractSeed
                 'posisi' => 'Pengasuh'
             ),
             array(
-                'nama' => 'Wisnu',
-                'email' => 'wisnu@example.com',
+                'nama' => 'Ucok',
+                'email' => 'ucok@example.com',
                 'nomor_telepon' => '089658444101',
                 'jenis_kelamin' => 'Laki-Laki',
                 'gaji' => 4000000,

@@ -121,12 +121,14 @@ $statement->execute();
                         </a>
                     </li>
                     <?php endif; ?>
+                <?php if ($role == 'admin'): ?>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['daftar_anak', 'kehadiran']) ? 'active' : ''; ?>">
                         <a href="daftar_anak.php">
                             <i class="las la-child"></i>
                             <p>Anak</p>
                         </a>
                     </li>
+                <?php endif; ?>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['paket', 'jenis_paket', 'tambah_paket', 'tambah_jenis_paket', 'edit_jenis_paket', 'edit_paket']) ? 'active' : ''; ?>">
                         <a href="paket.php">
                             <i class="las la-box"></i>
@@ -150,6 +152,12 @@ $statement->execute();
                             <a href="hutang_piutang.php">
                                 <i class="las la-file-invoice-dollar"></i>
                                 <p>Hutang Piutang</p>
+                            </a>
+                        </li>
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['penggajian', 'bayar_gaji','detail_penggajian']) ? 'active' : ''; ?>">
+                            <a href="penggajian.php">
+                                <i class="las la-file-invoice-dollar"></i>
+                                <p>Penggajian</p>
                             </a>
                         </li>
                     <?php endif; ?>
