@@ -115,20 +115,21 @@ $statement->execute();
                     </li>
                     <?php if ($role == 'owner'): ?>
                         <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['karyawan', 'tambah_karyawan', 'edit_karyawan']) ? 'active' : ''; ?>">
-                        <a href="karyawan.php">
-                            <i class="las la-user"></i>
-                            <p>Karyawan</p>
-                        </a>
-                    </li>
+                            <a href="karyawan.php">
+                                <i class="las la-user"></i>
+                                <p>Karyawan</p>
+                            </a>
+                        </li>
+
                     <?php endif; ?>
-                <?php if ($role == 'admin'): ?>
-                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['daftar_anak', 'kehadiran']) ? 'active' : ''; ?>">
-                        <a href="daftar_anak.php">
-                            <i class="las la-child"></i>
-                            <p>Anak</p>
-                        </a>
-                    </li>
-                <?php endif; ?>
+                    <?php if ($role == 'admin'): ?>
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['daftar_anak', 'kehadiran']) ? 'active' : ''; ?>">
+                            <a href="daftar_anak.php">
+                                <i class="las la-child"></i>
+                                <p>Anak</p>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['paket', 'jenis_paket', 'tambah_paket', 'tambah_jenis_paket', 'edit_jenis_paket', 'edit_paket']) ? 'active' : ''; ?>">
                         <a href="paket.php">
                             <i class="las la-box"></i>
@@ -148,25 +149,33 @@ $statement->execute();
                                 <p>Transaksi</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['hutang_piutang','tambah_hutang_piutang']) ? 'active' : ''; ?>">
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['hutang_piutang', 'tambah_hutang_piutang']) ? 'active' : ''; ?>">
                             <a href="hutang_piutang.php">
                                 <i class="las la-file-invoice-dollar"></i>
                                 <p>Hutang Piutang</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['penggajian', 'bayar_gaji','detail_penggajian']) ? 'active' : ''; ?>">
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['penggajian', 'bayar_gaji', 'detail_penggajian']) ? 'active' : ''; ?>">
                             <a href="penggajian.php">
                                 <i class="las la-file-invoice-dollar"></i>
                                 <p>Penggajian</p>
                             </a>
                         </li>
                     <?php endif; ?>
-                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengeluaran', 'pengeluaran_harian', 'laporan_pengeluaran', 'detail_pengeluaran']) ? 'active' : ''; ?>">
+                    <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['pengeluaran', 'pengeluaran_harian', 'laporan_pengeluaran', 'detail_pengeluaran', 'tambah_pengeluaran_harian','perbaiki_pengeluaran_harian']) ? 'active' : ''; ?>">
                         <a href="<?= $role == 'owner' ? 'laporan_pengeluaran.php' : 'pengeluaran.php'; ?>">
                             <i class="las la-money-bill-wave-alt"></i>
                             <p>Pengeluaran Harian</p>
                         </a>
                     </li>
+                    <?php if ($role == 'owner'): ?>
+                        <li class="nav-item <?= in_array(basename($_SERVER['PHP_SELF'], '.php'), ['laporan_keuangan']) ? 'active' : ''; ?>">
+                            <a href="laporan_keuangan.php">
+                                <i class="las la-money-bill-wave-alt"></i>
+                                <p>Laporan Keuangan</p>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                 <?php endif; ?>
 
                 <?php if ($role == 'user'): ?>

@@ -21,39 +21,39 @@ class HutangPiutang extends AbstractSeed
                 'total' => 1000000,
                 'jenis' => 'Hutang',
                 'status' => 'Belum Lunas',
-                'tanggal_pinjam' => '2022-05-25',
-                'tanggal_dibayar' => '2022-05-25',
+                'tanggal_pinjam' => '2024-05-25',
+                'tanggal_dibayar' => '2024-05-25',
                 'keterangan' => 'Hutang ke teman'
             ],
             [
                 'total' => 2000000,
                 'jenis' => 'Piutang',
                 'status' => 'Lunas',
-                'tanggal_pinjam' => '2022-05-25',
-                'tanggal_dibayar' => '2022-05-25',
+                'tanggal_pinjam' => '2024-05-25',
+                'tanggal_dibayar' => '2024-05-25',
                 'keterangan' => 'Piutang dari teman'
             ], [
                 'total' => 1000000,
                 'jenis' => 'Hutang',
                 'status' => 'Lunas',
-                'tanggal_pinjam' => '2022-05-25',
-                'tanggal_dibayar' => '2022-05-25',
+                'tanggal_pinjam' => '2024-05-25',
+                'tanggal_dibayar' => '2024-05-25',
                 'keterangan' => 'Hutang ke toko'
             ],
             [
                 'total' => 2000000,
                 'jenis' => 'Piutang',
                 'status' => 'Belum Lunas',
-                'tanggal_pinjam' => '2022-05-25',
-                'tanggal_dibayar' => '2022-05-25',
+                'tanggal_pinjam' => '2024-05-25',
+                'tanggal_dibayar' => '2024-05-25',
                 'keterangan' => 'Piutang dari toko'
             ],
             [
                 'total' => 2000000,
                 'jenis' => 'Piutang',
                 'status' => 'Belum Lunas',
-                'tanggal_pinjam' => '2022-05-25',
-                'tanggal_dibayar' => '2022-05-25',
+                'tanggal_pinjam' => '2024-05-25',
+                'tanggal_dibayar' => '2024-05-25',
                 'keterangan' => 'Piutang dari toko'
             ],
         ];
